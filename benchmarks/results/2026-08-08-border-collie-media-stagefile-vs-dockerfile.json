@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-08",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "media_service",
+  "change_class": "stagefile_generated_vs_handwritten_source_rebuild",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": {
+    "stagefile_generated_sha256": "c4a8fd16c7e6ff8cafd41173c0c6aa416a2d954a2e23942a538f0cb2d9b3b0fb",
+    "handwritten_sha256": "45d1976aa03d46917572ca93667a8300be7aa52bb754a7398022be2d1b082a60"
+  },
+  "context": {
+    "included_file_bytes": 67726449,
+    "builder_reported_bytes_approximate": 67740000,
+    "included_file_count": 6
+  },
+  "paired_source_rebuilds": {
+    "platform": "linux/arm64",
+    "output": "cacheonly",
+    "trials_per_variant": 3,
+    "stagefile_generated_seconds": [0.24, 0.24, 0.23],
+    "stagefile_generated_median_seconds": 0.24,
+    "handwritten_seconds": [0.54, 0.56, 0.55],
+    "handwritten_median_seconds": 0.55,
+    "median_delta_seconds": -0.31,
+    "median_relative_change": -0.563636,
+    "cached_steps_per_trial": 7,
+    "rebuilt_steps_per_trial": 1
+  },
+  "deployment_observations": {
+    "stagefile_success_seconds": [233.322, 244.174, 92.499],
+    "comparison_eligible_stagefile_deployments": 0,
+    "historical_handwritten_success_seconds": [71.444, 91.535, 160.313],
+    "comparison_eligible_handwritten_deployments": 0,
+    "device_layer_count": 53,
+    "image_count": 1,
+    "transfer_mode": "registry",
+    "reason_not_paired": "Concurrent deployments repeatedly held the global build lock and restarted or garbage-collected the shared builder cache."
+  },
+  "optimizer": {
+    "stagefile_generated_candidate": null,
+    "handwritten_candidate": null,
+    "status": "no-conservative-built-in-rewrite",
+    "dominant_historical_deployment_phase": "build"
+  },
+  "observer": {
+    "source_rebuild_instrument": "shell_wall_clock",
+    "isolated_overhead_seconds": null,
+    "median_user_cpu_seconds": 0.07,
+    "median_system_cpu_seconds": 0.06,
+    "dlo_unclassified_stagefile_seconds": [0.4, 0.269]
+  },
+  "result": {
+    "source_rebuild_faster": true,
+    "end_to_end_deployment_faster": null,
+    "optimization_claim": false,
+    "reason": "The Stagefile-generated graph was faster for three isolated cached source rebuilds, but no contention-free paired end-to-end deployment matrix completed."
+  },
+  "remaining_uncertainty": [
+    "The source-rebuild comparison used separate builder cache volumes to prevent one large graph from evicting the other.",
+    "The measured source-phase advantage is about 0.31 seconds and may be negligible in a deployment dominated by builder restart, cache restoration, or image export.",
+    "Historical deployment observations used different cache states and are not a performance control.",
+    "Exact compressed image bytes and per-trial observer overhead were not emitted.",
+    "A final end-to-end claim requires at least three paired deployments during an exclusive builder window."
+  ]
+}
