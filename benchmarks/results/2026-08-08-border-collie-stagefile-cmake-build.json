@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-08",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "Stagefile-generated app image",
+  "change_class": "commit_pinned_cmake_source_install_verification",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "kind": "Stagefile-generated",
+    "sha256": "4b76f42c2c9f852d2b8aaefd133b5aca9d0dc35729828947b8d75b5aed53aea5"
+  },
+  "context": {
+    "bytes": 4699,
+    "measurement": "optimizer_builder_output"
+  },
+  "build": {
+    "status": "success",
+    "platform": "linux/arm64",
+    "duration_seconds": 0.284,
+    "cached_steps": 8,
+    "rebuilt_steps": 0,
+    "resolved_steps": 1,
+    "failed_steps": 0,
+    "total_steps": 9
+  },
+  "image_and_layers": {
+    "measured_image_count": 1,
+    "measured_layer_count": 9,
+    "new_layers_without_baseline": 9,
+    "reused_layers_without_baseline": 0,
+    "measured_image_size_bytes": 219823141
+  },
+  "observer": {
+    "wrapper_duration_seconds": 1.709045,
+    "non_build_overhead_seconds": 1.423824,
+    "inspection_seconds": 0.025691,
+    "snapshot_seconds": 1.398133
+  },
+  "correctness": {
+    "stagefile_compilation": "success",
+    "native_cyclonedds_build": "success",
+    "python_import_smoke_test": "success",
+    "simulation_startup": "success",
+    "activation_ready": true
+  },
+  "result": {
+    "optimization_claim": false,
+    "reason": "This cached build verifies the Stagefile-generated image and records local evidence; it is not a paired performance comparison."
+  },
+  "remaining_uncertainty": [
+    "The optimizer observation was fully cached, so its duration does not represent a cold native build.",
+    "The preceding uncached Wendy build completed in approximately 40.5 seconds, but it was not captured as a structured optimizer observation.",
+    "No Dockerfile control build was paired with this Stagefile build, so no performance improvement is claimed.",
+    "Runtime validation used simulation mode on local arm64 Docker rather than the physical Go2 device."
+  ]
+}
