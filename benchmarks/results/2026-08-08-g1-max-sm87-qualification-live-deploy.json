@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-08",
+  "source_repository": "G1-Modcon-Demo",
+  "component": "G1 motion-free MAX YOLO11n qualification and live camera tracker",
+  "change_class": "max_sm87_krsc_maxpool_qualification_live_deploy",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": [
+    {
+      "component": "person-tracker",
+      "sha256": "cf3a80a11d8fe2886e66aa1615d4b40e69ec6c5ef903bcf5c0a1099e6bbb99e5"
+    },
+    {
+      "component": "realsense",
+      "sha256": "92e6933f13787a345314ac532c28c291e728e87df7b76d7c3da459cdae57daad"
+    }
+  ],
+  "context": {
+    "person_tracker_builder_reported_bytes_approximate": 15570000,
+    "realsense_builder_reported_bytes_approximate": 66760
+  },
+  "build": {
+    "status": "success",
+    "platform": "linux/arm64",
+    "parallel_multi_service_duration_seconds": 40.032,
+    "cached_steps_observed": 20,
+    "rebuilt_steps_observed": 0,
+    "failed_steps_observed": 0
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "status": "success",
+    "duration_seconds": 53.685,
+    "phase_seconds": {
+      "build": 40.032,
+      "export": 3.667,
+      "transfer": 0.021,
+      "replacement": 0.387,
+      "readiness": 9.218
+    }
+  },
+  "image_and_layers": {
+    "measured_image_count": 2,
+    "builder_cache_layer_records": 20,
+    "inspected_unique_layer_count": null,
+    "new_layer_count": null,
+    "reused_layer_count": null
+  },
+  "observer": {
+    "unclassified_wrapper_seconds": 0.36,
+    "separate_inspection_seconds": null,
+    "note": "The deployment wrapper classified 53.325 of 53.685 seconds; this run did not perform a separate image inspection."
+  },
+  "correctness": {
+    "target_gpu_arch": "sm_87",
+    "max_version": "26.4.0",
+    "qualification_passes": 2,
+    "warmups_per_backend": 20,
+    "samples_per_backend": 100,
+    "candidate_mean_of_pass_medians_ms": 11.73795175,
+    "tensorrt_mean_of_pass_medians_ms": 7.59697275,
+    "candidate_to_tensorrt_median_ratio": 1.545083,
+    "detection_parity_qualified": true,
+    "live_camera_ready": true,
+    "live_motion_control_enabled": false,
+    "nonzero_velocity_command_observed": false
+  },
+  "result": {
+    "optimization_claim": true,
+    "candidate_improvement_vs_prior_max_percent": 9.677981,
+    "candidate_reaches_tensorrt_parity": false,
+    "reason": "Two opposite-order passes reproduced the KRSC plus direct-maxpool gain over the prior MAX path, but the candidate remained about 1.55x TensorRT by median."
+  },
+  "remaining_uncertainty": [
+    "The multi-service build phase includes cache materialization and export work, so it is not a pure Docker instruction execution time.",
+    "Image and layer reuse were not separately inspected; the builder exposed 20 cache layer records across two images but not unique new-versus-reused layer counts.",
+    "P95 latency varied by backend order enough that the 1.35x TensorRT tail gate is not yet stable.",
+    "The live camera check exercised MAX only; an optional TensorRT live control was canceled because an unrelated deployment held Wendy's global build lock.",
+    "The result demonstrates a reproducible improvement over the prior MAX path, not TensorRT performance parity."
+  ]
+}
