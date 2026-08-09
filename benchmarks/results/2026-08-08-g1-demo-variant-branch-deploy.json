@@ -121,7 +121,7 @@
     "reason": "The measurements validate branch deployment behavior and expose cold-start and cache costs; no Dockerfile candidate was compared against a repeated baseline."
   },
   "remaining_uncertainty": [
-    "MAX Kokoro continued compiling after the 900-second readiness cutoff, so its eventual first-run completion time was not established by this aggregate.",
+    "MAX Kokoro remained CPU-active but was stopped after a 20-minute bounded observation without binding its health port or writing the persistent PCM cache; eventual completion time is unknown.",
     "No person was visible during the non-motion checks, so OSNet loaded and warmed up but did not produce a behavioral ReID latency sample.",
     "Cache and rebuild step counts, exact image bytes, compressed transfer bytes, and observer overhead were not emitted as aggregates.",
     "Context byte counts are rounded builder output and the MAX TTS context size was not captured.",
