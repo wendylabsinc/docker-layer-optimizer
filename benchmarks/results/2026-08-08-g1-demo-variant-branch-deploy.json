@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-08",
+  "source_repository": "G1-Modcon-Demo",
+  "component": "Main Demo three-variant G1 deployment validation",
+  "change_class": "variant_branch_deploy_and_model_role_isolation",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": [
+    {
+      "component": "main-demo",
+      "sha256": "35035836ab242e68d4e251ae0e217edba3c8ca4ddfabaa1b4637f28fd4cea1ad"
+    },
+    {
+      "component": "person-tracker",
+      "sha256": "cf3a80a11d8fe2886e66aa1615d4b40e69ec6c5ef903bcf5c0a1099e6bbb99e5"
+    },
+    {
+      "component": "max-tts",
+      "sha256": "912a344bdff9bbe19d8cdc68c31825e72174e2fd8def24e9f11eb9e5435db773"
+    },
+    {
+      "component": "realsense",
+      "sha256": "92e6933f13787a345314ac532c28c291e728e87df7b76d7c3da459cdae57daad"
+    }
+  ],
+  "context": {
+    "main_demo_builder_reported_bytes_approximate": 355280,
+    "person_tracker_builder_reported_bytes_approximate": 15570000,
+    "realsense_builder_reported_bytes_approximate": 66760,
+    "max_tts_builder_reported_bytes_approximate": null
+  },
+  "deployments": [
+    {
+      "variant": "basic-max-initial",
+      "status": "partial",
+      "duration_seconds": 531.069,
+      "build_seconds": 185.843,
+      "export_seconds": 132.839,
+      "transfer_seconds": 0.057,
+      "unpack_seconds": 90.817,
+      "replacement_seconds": 0.775,
+      "readiness_seconds": 120.293,
+      "unclassified_seconds": 0.445,
+      "signal": "readiness-timeout",
+      "cause": "model-role configuration cross-talk"
+    },
+    {
+      "variant": "basic-max-tracker-fix",
+      "status": "success",
+      "duration_seconds": 97.304,
+      "build_seconds": 86.743,
+      "export_seconds": 0.840,
+      "transfer_seconds": 0.024,
+      "unpack_seconds": 0.354,
+      "replacement_seconds": 0.566,
+      "readiness_seconds": 8.151,
+      "unclassified_seconds": 0.626
+    },
+    {
+      "variant": "basic",
+      "status": "success",
+      "duration_seconds": 80.955,
+      "build_seconds": 74.630,
+      "export_seconds": 1.012,
+      "transfer_seconds": 0.043,
+      "unpack_seconds": 0.477,
+      "replacement_seconds": 1.436,
+      "readiness_seconds": 2.838,
+      "unclassified_seconds": 0.519
+    },
+    {
+      "variant": "full",
+      "status": "partial",
+      "duration_seconds": 1066.940,
+      "build_seconds": 96.553,
+      "export_seconds": 43.440,
+      "transfer_seconds": 0.052,
+      "unpack_seconds": 22.723,
+      "replacement_seconds": 2.986,
+      "readiness_seconds": 900.655,
+      "unclassified_seconds": 0.531,
+      "signal": "readiness-timeout",
+      "cause": "first-run MAX Kokoro compile exceeded the 900-second readiness bound"
+    }
+  ],
+  "build_cache": {
+    "cached_step_count": null,
+    "rebuilt_step_count": null,
+    "note": "The Wendy adapter reported cached steps textually but did not emit aggregate cache and rebuild counts."
+  },
+  "image_and_layers": {
+    "full_variant_service_image_count": 4,
+    "full_variant_reported_device_unpack_image_count": 2,
+    "full_variant_reported_device_layer_count": 25,
+    "full_variant_reported_reused_layers": 15,
+    "full_variant_reported_applied_layers": 10,
+    "scope": "Only the MAX TTS and tracker images emitted device unpack plans; the already-present main and camera images are excluded.",
+    "image_size_bytes": null,
+    "compressed_bytes_transferred": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "note": "Observer overhead was not isolated; per-deployment unclassified time is reported above."
+  },
+  "correctness": {
+    "application_tests_passed_per_branch": 120,
+    "tracker_tests_passed_per_branch": 58,
+    "basic_max_runtime_ready": true,
+    "basic_runtime_ready": true,
+    "full_control_and_perception_ready": true,
+    "full_max_tts_ready_within_bound": false,
+    "motion_activated_during_validation": false,
+    "nonzero_velocity_command_observed": false
+  },
+  "result": {
+    "optimization_claim": false,
+    "reason": "The measurements validate branch deployment behavior and expose cold-start and cache costs; no Dockerfile candidate was compared against a repeated baseline."
+  },
+  "remaining_uncertainty": [
+    "MAX Kokoro continued compiling after the 900-second readiness cutoff, so its eventual first-run completion time was not established by this aggregate.",
+    "No person was visible during the non-motion checks, so OSNet loaded and warmed up but did not produce a behavioral ReID latency sample.",
+    "Cache and rebuild step counts, exact image bytes, compressed transfer bytes, and observer overhead were not emitted as aggregates.",
+    "Context byte counts are rounded builder output and the MAX TTS context size was not captured.",
+    "Only one deployment of each branch variant was measured."
+  ]
+}
