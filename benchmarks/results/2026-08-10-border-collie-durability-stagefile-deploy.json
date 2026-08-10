@@ -10,25 +10,31 @@
     "event_schema_version": 3
   },
   "dockerfile": {
-    "sha256": "a9c9d59ea2cfd3ec614d32bac8907ef6cfe2473cc53be5744c6026f1b5622b70"
+    "root_generated_sha256": "291c8e444b55c67c665a71143cd5ad88c821d90669b4e18d6ee744b5d97a569f",
+    "media_generated_sha256": "45cf38e7747de01050770860be1bf84599c4cafc2942fac61cb34880cd629c8e"
   },
   "context": {
     "recorded_root_observation_bytes": 303554,
     "complete_multiservice_context_bytes": null
   },
   "deployment": {
-    "duration_seconds": 107.66,
+    "observations": 2,
+    "duration_seconds": [
+      107.66,
+      98.974
+    ],
+    "median_duration_seconds": 103.317,
     "status": "success",
     "phase_source": "output-markers",
     "dominant_phase": "build",
-    "phases_seconds": {
-      "build": 55.875,
-      "export": 48.21,
-      "transfer": 0.037,
-      "unpack": 0.163,
-      "replacement": 0.83,
-      "readiness": 2.252,
-      "unclassified": 0.293
+    "median_phases_seconds": {
+      "build": 53.332,
+      "export": 45.973,
+      "transfer": 0.0425,
+      "unpack": 0.1115,
+      "replacement": 0.856,
+      "readiness": 2.457,
+      "unclassified": 0.545
     }
   },
   "cache": {
@@ -44,7 +50,7 @@
   },
   "observer": {
     "overhead_seconds": null,
-    "unclassified_seconds": 0.293
+    "median_unclassified_seconds": 0.545
   },
   "result": {
     "built": true,
@@ -54,10 +60,10 @@
     "optimization_claim": false
   },
   "remaining_uncertainty": [
-    "This is one deployment observation, not a paired Stagefile-versus-Dockerfile performance trial.",
+    "These are two deployments in uncontrolled cache states, not a paired Stagefile-versus-Dockerfile performance trial.",
     "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
     "The recorded context size covers the root Dockerfile observation and not the complete multi-service media context.",
     "Exact observer overhead and compressed registry transfer bytes were not emitted.",
-    "Wendy readiness only established that the app HTTP endpoint was reachable; the application-level activation gate later remained closed because the media supervisor received no camera frames."
+    "The second deployment reached stable camera and bark readiness, but activation correctly remained closed because metric Arrival calibration was not configured."
   ]
 }
