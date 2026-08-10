@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "perception-only person recognition lab",
+  "change_class": "new_ip_camera_reid_compatibility_lab",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "055552f95e2e4e69d261db1c01ab8b06195b9e4a156d4c1f73562e654a6e1b87"
+  },
+  "context": {
+    "initial_successful_build_bytes": 11621255,
+    "immediate_warm_build_transfer_bytes": 836
+  },
+  "builds": [
+    {
+      "cache_state": "first_successful_arm64_image_after_dependency_pin_fix",
+      "status": "success",
+      "platform": "linux/arm64",
+      "duration_seconds": 52.219,
+      "tests_passed_in_image": 5
+    },
+    {
+      "cache_state": "immediate_warm_cache_measurement",
+      "status": "success",
+      "platform": "linux/arm64",
+      "duration_seconds": 6.164,
+      "steps": {
+        "total": 9,
+        "resolved": 1,
+        "cached": 8,
+        "rebuilt": 0,
+        "failed": 0
+      },
+      "observer": {
+        "wrapper_seconds": 6.43626,
+        "non_build_seconds": 0.271842,
+        "inspection_seconds": 0.023297,
+        "snapshot_seconds": 0.248544
+      }
+    }
+  ],
+  "deployment": {
+    "adapter": "wendy",
+    "target_class": "jetson_orin_nano",
+    "status": "success",
+    "duration_seconds": 95.5,
+    "device_layer_count": 12,
+    "device_layers_reused": 1,
+    "device_layers_applied": 11,
+    "readiness_verified_separately": true
+  },
+  "image_and_layers": {
+    "measured_image_count": 1,
+    "measured_layer_count": 12,
+    "measured_image_size_bytes": 280678380,
+    "warm_measurement_had_prior_image_baseline": false
+  },
+  "correctness": {
+    "project_tests_passed": 5,
+    "arm64_image_tests_passed": 5,
+    "app_running": true,
+    "http_health_ok": true,
+    "ui_http_status": 200,
+    "mjpeg_boundary_and_jpeg_verified": true,
+    "camera_online": true,
+    "camera_reconnects": 0,
+    "camera_frame_age_seconds_observed": 0.059,
+    "detector_provider": "CPUExecutionProvider",
+    "detector_average_inference_ms_observed": 76.488,
+    "person_tracks_observed": 0,
+    "motion_interface_present": false,
+    "physical_motion_commanded": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "live_camera_verified": true,
+    "optimization_claim": false,
+    "reason": "The compatibility lab built, deployed, served fresh authenticated camera frames, and ran detector inference. No paired optimization candidate was measured."
+  },
+  "remaining_uncertainty": [
+    "No person was present in the live frame, so enrollment, OSNet inference, identity lock, ambiguity handling, and cross-restart profile persistence remain physically unverified.",
+    "The deployment wrapper was interrupted after Wendy reported readiness so live logs would detach; deployment success was recorded after independent app, health, state, MJPEG, and UI verification.",
+    "The IP-camera read path currently requires the broad Wendy admin entitlement rather than a narrow video-stream entitlement.",
+    "The Parakeet test uses portable CPU inference and does not measure the eventual G1 GPU runtime.",
+    "The first failed build used an unavailable Python aarch64 dependency pin and did not deploy.",
+    "The requested agent-first installation branch was unavailable; the existing verified DLO 0.5.0b1 executable recorded the work."
+  ]
+}
