@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "scheduled_body_and_face_recognition_throughput",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "f2babdba06899db9a3288faed441d13d2d33bbc3399f997b2046827e32e9ce42"
+  },
+  "context": {
+    "bytes": 50685467,
+    "measurement": "optimizer_build_observation"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 37.085,
+    "cached_steps": 1,
+    "rebuilt_steps": 10,
+    "resolved_steps": 0,
+    "failed_steps": 0,
+    "total_steps": 11
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target": "wendystudio-parakeet-demo",
+    "status": "success",
+    "duration_seconds": 20.492,
+    "phase_seconds": {
+      "build": 10.495,
+      "export": 7.256,
+      "transfer": 0.02,
+      "unpack": null,
+      "replacement": 0.206,
+      "readiness": 2.148
+    },
+    "unclassified_seconds": 0.367
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 14,
+    "new_layers_without_baseline": 14,
+    "reused_layers_without_baseline": 0,
+    "image_size_bytes": 352904167
+  },
+  "observer": {
+    "build_wrapper_seconds": 37.619731,
+    "build_non_build_overhead_seconds": 0.533907,
+    "inspection_seconds": 0.022848,
+    "snapshot_seconds": 0.511059,
+    "deployment_unclassified_seconds": 0.367
+  },
+  "correctness": {
+    "container_tests_passed": 10,
+    "camera_socket_private": true,
+    "camera_frames_advancing": true,
+    "camera_reconnects": 0,
+    "baseline_processing_fps": 3.457,
+    "acceptance_processing_fps": [7.709, 7.958, 7.937],
+    "minimum_required_fps": 6.0,
+    "detector_average_inference_ms": 76.767,
+    "thermal_max_c": 51.687,
+    "perception_only": true,
+    "motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "The app throughput improvement was measured live, but no paired Dockerfile control and candidate were tested."
+  },
+  "remaining_uncertainty": [
+    "No person was visible during the final live probes, so OSNet and scheduled face inference still require an operator-present venue run.",
+    "The saved profile contains body samples only; facial matching requires explicit re-enrollment of the confirmed recipient.",
+    "The deployment observation did not emit an unpack duration or transferred byte count.",
+    "The requested agent-first installation branch was absent from the source remote, so the existing verified DLO 0.5.0b1 executable recorded the measurements.",
+    "No paired Dockerfile control was measured, so no Docker layer optimization is claimed."
+  ]
+}
