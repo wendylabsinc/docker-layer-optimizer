@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_service",
+  "change_class": "durability_foundation_container_verification",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "a9c9d59ea2cfd3ec614d32bac8907ef6cfe2473cc53be5744c6026f1b5622b70"
+  },
+  "context": {
+    "cold_observation_bytes": 303554,
+    "cached_observation_bytes": 1840
+  },
+  "builds": [
+    {
+      "duration_seconds": 51.072,
+      "cached_steps": 1,
+      "rebuilt_steps": 10,
+      "resolved_steps": 0,
+      "failed_steps": 0,
+      "wrapper_overhead_seconds": 0.030504
+    },
+    {
+      "duration_seconds": 1.052,
+      "cached_steps": 10,
+      "rebuilt_steps": 0,
+      "resolved_steps": 1,
+      "failed_steps": 0,
+      "wrapper_overhead_seconds": 0.030935
+    }
+  ],
+  "image": {
+    "size_bytes": 227704812,
+    "layer_count": 10,
+    "cached_build_matching_diff_ids": 10,
+    "cached_build_unmatched_diff_ids": 0
+  },
+  "optimizer": {
+    "candidate": null,
+    "status": "no-conservative-built-in-rewrite"
+  },
+  "result": {
+    "container_build_verified": true,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "The first observation populated a fresh DLO target baseline and the second was fully cached; these are not performance-comparison trials.",
+    "The Jetson media image was not built on the Mac host.",
+    "No registry push, device unpack, container replacement, readiness check, or physical deployment was measured."
+  ]
+}
