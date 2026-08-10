@@ -3,7 +3,7 @@
   "date": "2026-08-10",
   "source_repository": "wendylabsinc/go2-iphone-remote",
   "component": "iphone_web_remote",
-  "change_class": "iphone_gamepad_deadman_and_controller_menu",
+  "change_class": "raw_go2_camera_feed",
   "tool": {
     "name": "docker-layer-optimizer",
     "version": "0.5.0b1",
@@ -13,13 +13,13 @@
     "sha256": "e26e2bed9eb735cb04dd9aae4e16d192d23e7f2515bcc92a19e986e58c9e0b60"
   },
   "context": {
-    "bytes": 48950,
+    "bytes": 15290,
     "measurement": "final_local_optimizer_build"
   },
   "build": {
     "status": "success",
     "platform": "linux/arm64",
-    "duration_seconds": 0.901,
+    "duration_seconds": 0.72,
     "steps_total": 9,
     "steps_cached": 6,
     "steps_rebuilt": 2,
@@ -27,7 +27,7 @@
     "steps_failed": 0
   },
   "image_and_layers": {
-    "image_bytes": 290412455,
+    "image_bytes": 290412451,
     "layers_total": 12,
     "layers_reused": 0,
     "layers_new": 12,
@@ -37,19 +37,19 @@
   "deployment": {
     "status": "success",
     "adapter": "wendy",
-    "duration_seconds": 11.196,
-    "build_seconds": 8.644,
-    "export_seconds": 0.3,
-    "transfer_seconds": 0.02,
-    "unpack_seconds": 0.051,
-    "replacement_seconds": 0.217,
-    "readiness_seconds": 1.698
+    "duration_seconds": 12.245,
+    "build_seconds": 9.261,
+    "export_seconds": 0.473,
+    "transfer_seconds": 0.008,
+    "unpack_seconds": 0.059,
+    "replacement_seconds": 0.244,
+    "readiness_seconds": 1.708
   },
   "observer": {
-    "build_wrapper_seconds": 0.926068,
-    "build_non_build_overhead_seconds": 0.023888,
-    "build_inspection_seconds": 0.022991,
-    "build_snapshot_seconds": 0.000897
+    "build_wrapper_seconds": 0.741017,
+    "build_non_build_overhead_seconds": 0.020453,
+    "build_inspection_seconds": 0.019732,
+    "build_snapshot_seconds": 0.00072
   },
   "correctness": {
     "project_tests_passed": 10,
@@ -59,6 +59,8 @@
     "device_http_health": "healthy",
     "device_camera_http_status": 200,
     "device_camera_resolution": "1280x720",
+    "device_camera_source": "go2_front_camera_raw_jpeg",
+    "pear_model_overlay_absent": true,
     "iphone_landscape_viewport": "844x390",
     "iphone_landscape_scroll": false,
     "minimum_action_target_px": 44,
@@ -74,7 +76,7 @@
     "built": true,
     "deployed": true,
     "optimization_claim": false,
-    "reason": "The remote built, deployed, served the live camera, exposed standard iPhone gamepad controls, and passed zero-motion safety checks, but no paired optimization candidate was measured."
+    "reason": "The remote built, deployed, served the raw Go2 front camera without the pear-model preview overlay, and passed zero-motion safety checks, but no paired optimization candidate was measured."
   },
   "remaining_uncertainty": [
     "A physical game controller paired to an iPhone was not exercised during this zero-motion deployment.",
