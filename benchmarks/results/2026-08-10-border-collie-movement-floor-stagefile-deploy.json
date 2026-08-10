@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "minimum_forward_velocity_floor_stagefile_deployment",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "root_generated_sha256": "291c8e444b55c67c665a71143cd5ad88c821d90669b4e18d6ee744b5d97a569f",
+    "media_generated_sha256": "757d178ad85928dfdffa8dd0950c1f84b694549f40062f734c02731474eacb01"
+  },
+  "context": {
+    "median_recorded_root_observation_bytes": 152697,
+    "complete_multiservice_context_bytes": null
+  },
+  "deployment": {
+    "duration_seconds": 105.512,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 55.961,
+      "export": 45.469,
+      "transfer": 0.059,
+      "unpack": 0.079,
+      "replacement": 0.894,
+      "readiness": 2.388,
+      "unclassified": 0.662
+    }
+  },
+  "cache": {
+    "service_build_cached_steps": null,
+    "service_build_rebuilt_steps": null,
+    "observed_app_device_layers_total": 9,
+    "observed_app_device_layers_reused": 7,
+    "observed_app_device_layers_applied": 2,
+    "media_device_layer_counts": null
+  },
+  "images": {
+    "count": 2,
+    "aggregate_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "unclassified_seconds": 0.662
+  },
+  "readiness_verification": {
+    "release_pair_matched": true,
+    "activation_ready": true,
+    "camera_generation_stable": true,
+    "camera_pts_advanced": true,
+    "bark_ready": true
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": true,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "This is one deployment observation, not a paired performance trial.",
+    "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
+    "The shared builder restored large cached media layers after its per-invocation restart, which dominates the observed build and export phases.",
+    "The recorded context size is a median root observation and does not cover the complete multi-service media context.",
+    "Exact observer overhead, compressed registry transfer bytes, media device layer counts, and aggregate image layer counts were not emitted."
+  ]
+}
