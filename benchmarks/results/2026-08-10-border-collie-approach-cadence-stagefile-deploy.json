@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "approach_cadence_stagefile_deployment",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "root_generated_sha256": "291c8e444b55c67c665a71143cd5ad88c821d90669b4e18d6ee744b5d97a569f",
+    "media_generated_sha256": "45cf38e7747de01050770860be1bf84599c4cafc2942fac61cb34880cd629c8e"
+  },
+  "context": {
+    "median_recorded_root_observation_bytes": 152697,
+    "complete_multiservice_context_bytes": null
+  },
+  "deployment": {
+    "duration_seconds": 105.891,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 54.886,
+      "export": 45.549,
+      "transfer": 0.045,
+      "unpack": 0.209,
+      "replacement": 1.071,
+      "readiness": 2.694,
+      "unclassified": 1.437
+    }
+  },
+  "cache": {
+    "service_build_cached_steps": null,
+    "service_build_rebuilt_steps": null,
+    "observed_app_device_layers_total": 9,
+    "observed_app_device_layers_reused": 7,
+    "observed_app_device_layers_applied": 2,
+    "observed_media_device_layers_total": null,
+    "observed_media_device_layers_reused": null,
+    "observed_media_device_layers_applied": null
+  },
+  "images": {
+    "count": 2,
+    "observed_aggregate_device_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "unclassified_seconds": 1.437
+  },
+  "readiness_verification": {
+    "release_pair_matched": true,
+    "activation_ready": true,
+    "camera_generation_stable": true,
+    "camera_pts_advanced": true,
+    "bark_ready": true,
+    "visual_odometry_tracking": true
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": true,
+    "physical_run_started": true,
+    "physical_run_completed": false,
+    "physical_run_reason": "TARGET_RECOGNITION_FAILURE",
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "This is one deployment observation, not a paired performance trial.",
+    "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so exact per-service cache and rebuild counts are unavailable.",
+    "The shared builder restored large cached media layers after its per-invocation restart, which dominates the observed build and export phases.",
+    "The recorded context size is a median root observation and does not cover the complete multi-service media context.",
+    "Exact observer overhead, media device-layer reuse counts, and compressed registry transfer bytes were not emitted."
+  ]
+}
