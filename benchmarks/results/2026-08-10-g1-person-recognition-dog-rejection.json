@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "reject_non_upright_false_person_before_identity_lock",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "f2babdba06899db9a3288faed441d13d2d33bbc3399f997b2046827e32e9ce42"
+  },
+  "context": {
+    "bytes": 58726,
+    "measurement": "optimizer_build_observation"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 3.219,
+    "cached_steps": 4,
+    "rebuilt_steps": 6,
+    "resolved_steps": 1,
+    "failed_steps": 0,
+    "total_steps": 11
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target": "wendystudio-parakeet-demo",
+    "status": "success",
+    "duration_seconds": 32.795,
+    "phase_seconds": {
+      "build": 10.482,
+      "export": 9.716,
+      "transfer": 0.058,
+      "unpack": 9.451,
+      "replacement": 0.191,
+      "readiness": 1.868
+    },
+    "unclassified_seconds": 1.029
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 14,
+    "new_layers": 5,
+    "reused_layers": 9,
+    "image_size_bytes": 352863168
+  },
+  "observer": {
+    "build_wrapper_seconds": 3.518086,
+    "build_non_build_overhead_seconds": 0.297198,
+    "inspection_seconds": 0.025044,
+    "snapshot_seconds": 0.272154,
+    "deployment_unclassified_seconds": 1.029
+  },
+  "correctness": {
+    "container_tests_passed": 11,
+    "pre_fix_false_track_confirmed": true,
+    "post_fix_non_upright_aspect_ratio": 0.8967,
+    "post_fix_non_upright_identity_score": 0.9791,
+    "post_fix_non_upright_ever_eligible": false,
+    "post_fix_non_upright_ever_confirmed": false,
+    "post_fix_upright_aspect_ratio_range": [1.4584, 1.6887],
+    "post_fix_upright_identity_score": 0.8149,
+    "post_fix_upright_ever_eligible": true,
+    "post_fix_upright_ever_confirmed": true,
+    "processing_fps": 7.975,
+    "camera_reconnects": 0,
+    "perception_only": true,
+    "motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "The false-person gate fix passed a live paired-scene check, but no paired Dockerfile optimization was measured."
+  },
+  "remaining_uncertainty": [
+    "The current saved appearance profile was enrolled from the false dog track and must be replaced with a confirmed person enrollment.",
+    "The upright-shape gate is specific to the standing stage operating envelope and must be recalibrated before supporting seated or crouching recipients.",
+    "The current YOLO11n detector still emits the dog as a low-confidence person; the new gate prevents identity confirmation rather than changing the detector model.",
+    "No paired Dockerfile control was measured, so no Docker layer optimization is claimed."
+  ]
+}
