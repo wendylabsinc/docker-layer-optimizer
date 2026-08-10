@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "border-collie-demo",
+  "component": "training/webcam-tracker",
+  "change_class": "markerless_go2_segmentation_pretraining_setup",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "8592914c8ade2e881ea3215fda6053f620fcedb32e20f68b861ed748b25091da"
+  },
+  "context": {
+    "initial_build_bytes": 28130,
+    "final_source_only_build_bytes": 4090
+  },
+  "builds": {
+    "count": 4,
+    "successful": 4,
+    "durations_seconds": [197.029, 2.799, 67.147, 3.073],
+    "final_source_only_rebuild": {
+      "duration_seconds": 3.073,
+      "steps_total": 9,
+      "steps_cached": 6,
+      "steps_rebuilt": 2,
+      "steps_resolved": 1,
+      "steps_failed": 0
+    }
+  },
+  "deployments": {
+    "count": 4,
+    "successful": 4,
+    "durations_seconds": [241.33, 133.136, 212.823, 136.499],
+    "final": {
+      "duration_seconds": 136.499,
+      "build_seconds": 134.274,
+      "export_seconds": 0.528,
+      "transfer_seconds": 0.01,
+      "unpack_seconds": 0.069,
+      "replacement_seconds": 0.252,
+      "readiness_seconds": 0.745
+    }
+  },
+  "image_and_layers": {
+    "measured_image_count": 1,
+    "measured_layer_count": 85,
+    "measured_image_size_bytes": 9320977161,
+    "final_local_layers_reused": 83,
+    "final_local_layers_new": 2
+  },
+  "observer": {
+    "final_build_wrapper_seconds": 3.188841,
+    "final_build_non_build_seconds": 0.11446,
+    "final_build_inspection_seconds": 0.049161,
+    "final_build_snapshot_seconds": 0.065299
+  },
+  "correctness": {
+    "project_tests_passed": 8,
+    "arm64_image_built": true,
+    "app_running": true,
+    "http_status_healthy": true,
+    "training_enabled": false,
+    "gpu_utilization_percent_after_deploy": 0,
+    "physical_robot_commanded": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "The pretraining image and inert dataset-status service built and deployed successfully. No paired optimization candidate was applied."
+  },
+  "remaining_uncertainty": [
+    "No source videos or annotations were available, so no model training or model-quality evaluation was performed.",
+    "The deployment observer did not emit compressed transferred bytes or device-side per-layer byte counts.",
+    "The large base image dominates cold-build and image-size measurements.",
+    "The requested agent-first installation branch was unavailable; the existing verified DLO 0.5.0b1 executable recorded the work."
+  ]
+}
