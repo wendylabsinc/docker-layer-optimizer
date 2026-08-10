@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "durability_foundation_stagefile_device_deployment",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "a9c9d59ea2cfd3ec614d32bac8907ef6cfe2473cc53be5744c6026f1b5622b70"
+  },
+  "context": {
+    "recorded_root_observation_bytes": 303554,
+    "complete_multiservice_context_bytes": null
+  },
+  "deployment": {
+    "duration_seconds": 107.66,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 55.875,
+      "export": 48.21,
+      "transfer": 0.037,
+      "unpack": 0.163,
+      "replacement": 0.83,
+      "readiness": 2.252,
+      "unclassified": 0.293
+    }
+  },
+  "cache": {
+    "service_build_cached_steps": null,
+    "service_build_rebuilt_steps": null,
+    "device_layers_total": 62,
+    "device_layers_reused": 59,
+    "device_layers_applied": 3
+  },
+  "images": {
+    "count": 2,
+    "aggregate_layer_count": 62
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "unclassified_seconds": 0.293
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": false,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "This is one deployment observation, not a paired Stagefile-versus-Dockerfile performance trial.",
+    "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
+    "The recorded context size covers the root Dockerfile observation and not the complete multi-service media context.",
+    "Exact observer overhead and compressed registry transfer bytes were not emitted.",
+    "Wendy readiness only established that the app HTTP endpoint was reachable; the application-level activation gate later remained closed because the media supervisor received no camera frames."
+  ]
+}
