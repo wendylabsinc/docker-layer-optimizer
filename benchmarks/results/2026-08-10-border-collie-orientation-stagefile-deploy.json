@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "whole_app_stagefile_deployment",
+  "change_class": "randomized_pre_search_orientation",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": {
+    "app_stagefile_generated_sha256": "4b76f42c2c9f852d2b8aaefd133b5aca9d0dc35729828947b8d75b5aed53aea5",
+    "media_stagefile_generated_sha256": "c4a8fd16c7e6ff8cafd41173c0c6aa416a2d954a2e23942a538f0cb2d9b3b0fb"
+  },
+  "context": {
+    "app_dlo_snapshot_bytes": 143010,
+    "media_dlo_snapshot_bytes": 258,
+    "app_builder_transfer_bytes_approximate": 620600,
+    "media_builder_transfer_bytes_approximate": 67740000
+  },
+  "local_build_validation": {
+    "platform": "linux/arm64",
+    "app": {
+      "duration_seconds": 4.895,
+      "cached_steps": 6,
+      "rebuilt_steps": 2,
+      "resolved_steps": 1,
+      "failed_steps": 0
+    },
+    "media": {
+      "duration_seconds": 88.033,
+      "cached_steps": 7,
+      "rebuilt_steps": 0,
+      "resolved_steps": 1,
+      "failed_steps": 0
+    }
+  },
+  "deployment": {
+    "status": "success",
+    "duration_seconds": 104.479,
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 55.522,
+      "export": 44.981,
+      "transfer": 0.041,
+      "unpack": 0.07,
+      "replacement": 0.878,
+      "readiness": 2.671,
+      "unclassified": 0.316
+    }
+  },
+  "image_layers": {
+    "app_total": 9,
+    "media_total": 53,
+    "aggregate_total": 62,
+    "inspection_baseline": "new",
+    "note": "Layer new and reused counts describe first DLO inspection baselines, not BuildKit cache hits."
+  },
+  "observer": {
+    "app_wrapper_seconds": 6.385242,
+    "app_non_build_seconds": 1.489158,
+    "media_wrapper_seconds": 88.093351,
+    "media_non_build_seconds": 0.059973,
+    "deployment_unclassified_seconds": 0.316
+  },
+  "result": {
+    "build_validation_passed": true,
+    "deployment_passed": true,
+    "optimization_claim": false,
+    "reason": "Both Stagefile-generated services built and the whole app became ready, but this single deployment is not a performance comparison."
+  },
+  "remaining_uncertainty": [
+    "The shared builder restarted and restored large media layers before this deployment, so its cache state is not a controlled baseline.",
+    "The media validation had seven cached Dockerfile steps but still spent most wall time loading and inspecting the multi-gigabyte image.",
+    "Concurrent service builds overlap, so summed service wall times do not equal the deployment build phase.",
+    "No paired Dockerfile or prior Stagefile deployment was run under an identical cache state.",
+    "Exact compressed bytes pushed were not emitted."
+  ]
+}
