@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "demo/base whole-app Stagefile preparation",
+  "change_class": "stagefile_generated_local_build_readiness",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": [
+    {
+      "component": "app",
+      "sha256": "4b76f42c2c9f852d2b8aaefd133b5aca9d0dc35729828947b8d75b5aed53aea5"
+    },
+    {
+      "component": "media",
+      "sha256": "c4a8fd16c7e6ff8cafd41173c0c6aa416a2d954a2e23942a538f0cb2d9b3b0fb"
+    }
+  ],
+  "builds": [
+    {
+      "component": "app",
+      "status": "success",
+      "context_bytes": 257949,
+      "duration_seconds": 0.815,
+      "steps": {
+        "total": 9,
+        "resolved": 1,
+        "cached": 6,
+        "rebuilt": 2,
+        "failed": 0
+      },
+      "image": {
+        "count": 1,
+        "size_bytes": 219803009,
+        "layer_count": 9
+      },
+      "observer": {
+        "wrapper_seconds": 2.388964,
+        "non_build_seconds": 1.572874,
+        "inspection_seconds": 0.155753
+      }
+    },
+    {
+      "component": "media",
+      "cache_state": "freshly_started_engine_restore",
+      "status": "success",
+      "context_bytes": 45932,
+      "duration_seconds": 182.72,
+      "steps": {
+        "total": 8,
+        "resolved": 1,
+        "cached": 0,
+        "rebuilt": 7,
+        "failed": 0
+      },
+      "image": {
+        "count": 1,
+        "size_bytes": 6320112670,
+        "layer_count": 53
+      },
+      "observer": {
+        "wrapper_seconds": 182.795168,
+        "non_build_seconds": 0.074008,
+        "inspection_seconds": 0.043845
+      }
+    },
+    {
+      "component": "media",
+      "cache_state": "immediate_noop_cache_verification",
+      "status": "success",
+      "context_bytes": 258,
+      "duration_seconds": 0.323,
+      "steps": {
+        "total": 8,
+        "resolved": 1,
+        "cached": 7,
+        "rebuilt": 0,
+        "failed": 0
+      },
+      "image": {
+        "count": 1,
+        "size_bytes": 6320112670,
+        "layer_count": 53,
+        "reused_layers": 53
+      },
+      "observer": {
+        "wrapper_seconds": 0.388734,
+        "non_build_seconds": 0.064434,
+        "inspection_seconds": 0.039202
+      }
+    }
+  ],
+  "correctness": {
+    "project_tests_passed": 156,
+    "root_stagefile_lock_matches_source": true,
+    "media_stagefile_lock_matches_source": true,
+    "deployment_attempted": false,
+    "robot_contacted": false
+  },
+  "result": {
+    "whole_app_local_build_ready": true,
+    "deployment_ready_claim": false,
+    "optimization_claim": false,
+    "reason": "Both Stagefile-generated service images built locally and the immediate media cache verification reused all 53 layers. No registry export, device transfer, replacement, readiness, or physical run was measured."
+  },
+  "remaining_uncertainty": [
+    "The first media build followed a Docker engine start and includes cold layer restoration; it is not a warm deployment control.",
+    "The app and media observations used local image loading rather than registry push.",
+    "No end-to-end deployment timing or device-side layer reuse was measured.",
+    "The changed application source was not deployed or exercised on hardware.",
+    "A valid deployment result still requires live identity, readiness, motion-disarmed, perception, bark, thermal, and device-probe checks before activation."
+  ]
+}
