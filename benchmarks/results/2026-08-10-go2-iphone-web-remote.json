@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/go2-local-web-remote",
+  "component": "iphone_web_remote",
+  "change_class": "http_entitlement_touch_controls_and_control_lease",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "2551299d298687b597b430dd9c837f88494195d134268c1d71f35862dda49f98"
+  },
+  "context": {
+    "bytes": 32500,
+    "measurement": "final_local_optimizer_build"
+  },
+  "build": {
+    "status": "success",
+    "platform": "linux/arm64",
+    "duration_seconds": 0.614,
+    "steps_total": 9,
+    "steps_cached": 6,
+    "steps_rebuilt": 2,
+    "steps_resolved": 1,
+    "steps_failed": 0
+  },
+  "image_and_layers": {
+    "image_bytes": 290408132,
+    "layers_total": 12,
+    "layers_reused": 11,
+    "layers_new": 1,
+    "matching_diff_ids": 11,
+    "unmatched_diff_ids": 1
+  },
+  "deployment": {
+    "status": "success",
+    "adapter": "wendy",
+    "duration_seconds": 89.802,
+    "build_seconds": 47.682,
+    "export_seconds": 30.105,
+    "transfer_seconds": 0.025,
+    "unpack_seconds": 9.886,
+    "replacement_seconds": 0.162,
+    "readiness_seconds": 1.671
+  },
+  "observer": {
+    "build_wrapper_seconds": 0.638619,
+    "build_non_build_overhead_seconds": 0.023983,
+    "build_inspection_seconds": 0.023204,
+    "build_snapshot_seconds": 0.000779
+  },
+  "correctness": {
+    "project_tests_passed": 4,
+    "container_api_contract_checks_passed": 6,
+    "responsive_viewports_verified": 2,
+    "declared_http_port_discovered": true,
+    "device_http_health": "healthy",
+    "control_armed_after_deployment": false,
+    "motion_updates_after_deployment": 0,
+    "sport_commands_after_deployment": 0,
+    "physical_motion_commanded_during_validation": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "The remote built, deployed, and passed zero-motion HTTP and responsive-layout checks, but no paired optimization candidate was measured."
+  },
+  "remaining_uncertainty": [
+    "Physical joystick actuation was deliberately not tested on the robot.",
+    "The direct motion path does not provide obstacle avoidance.",
+    "The deployment builder had a different cache state from the final local optimizer build, so their cache counts are not interchangeable.",
+    "A selective service deployment retained older app-group version metadata even though the live HTTP configuration and entitlement are current.",
+    "The requested agent-first installation branch was unavailable; the existing verified DLO 0.5.0b1 executable recorded the work."
+  ]
+}
