@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
   "date": "2026-08-10",
-  "source_repository": "wendylabsinc/go2-local-web-remote",
+  "source_repository": "wendylabsinc/go2-iphone-remote",
   "component": "iphone_web_remote",
-  "change_class": "http_entitlement_touch_controls_and_control_lease",
+  "change_class": "camera_proxy_fullscreen_controls_and_brand_menu",
   "tool": {
     "name": "docker-layer-optimizer",
     "version": "0.5.0b1",
     "event_schema_version": 3
   },
   "dockerfile": {
-    "sha256": "2551299d298687b597b430dd9c837f88494195d134268c1d71f35862dda49f98"
+    "sha256": "e26e2bed9eb735cb04dd9aae4e16d192d23e7f2515bcc92a19e986e58c9e0b60"
   },
   "context": {
-    "bytes": 32500,
+    "bytes": 41590,
     "measurement": "final_local_optimizer_build"
   },
   "build": {
     "status": "success",
     "platform": "linux/arm64",
-    "duration_seconds": 0.614,
+    "duration_seconds": 0.917,
     "steps_total": 9,
     "steps_cached": 6,
     "steps_rebuilt": 2,
@@ -27,7 +27,7 @@
     "steps_failed": 0
   },
   "image_and_layers": {
-    "image_bytes": 290408132,
+    "image_bytes": 290410435,
     "layers_total": 12,
     "layers_reused": 11,
     "layers_new": 1,
@@ -37,26 +37,31 @@
   "deployment": {
     "status": "success",
     "adapter": "wendy",
-    "duration_seconds": 89.802,
-    "build_seconds": 47.682,
-    "export_seconds": 30.105,
-    "transfer_seconds": 0.025,
-    "unpack_seconds": 9.886,
-    "replacement_seconds": 0.162,
-    "readiness_seconds": 1.671
+    "duration_seconds": 90.769,
+    "build_seconds": 44.828,
+    "export_seconds": 33.621,
+    "transfer_seconds": 0.023,
+    "unpack_seconds": 10.095,
+    "replacement_seconds": 0.223,
+    "readiness_seconds": 1.676
   },
   "observer": {
-    "build_wrapper_seconds": 0.638619,
-    "build_non_build_overhead_seconds": 0.023983,
-    "build_inspection_seconds": 0.023204,
-    "build_snapshot_seconds": 0.000779
+    "build_wrapper_seconds": 0.941964,
+    "build_non_build_overhead_seconds": 0.024346,
+    "build_inspection_seconds": 0.023549,
+    "build_snapshot_seconds": 0.000798
   },
   "correctness": {
-    "project_tests_passed": 4,
-    "container_api_contract_checks_passed": 6,
-    "responsive_viewports_verified": 2,
+    "project_tests_passed": 8,
+    "container_api_contract_checks_passed": 7,
+    "responsive_viewports_verified": 1,
     "declared_http_port_discovered": true,
     "device_http_health": "healthy",
+    "device_camera_http_status": 200,
+    "device_camera_resolution": "1280x720",
+    "iphone_landscape_viewport": "844x390",
+    "iphone_landscape_scroll": false,
+    "minimum_action_target_px": 44,
     "control_armed_after_deployment": false,
     "motion_updates_after_deployment": 0,
     "sport_commands_after_deployment": 0,
@@ -66,13 +71,13 @@
     "built": true,
     "deployed": true,
     "optimization_claim": false,
-    "reason": "The remote built, deployed, and passed zero-motion HTTP and responsive-layout checks, but no paired optimization candidate was measured."
+    "reason": "The remote built, deployed, served the live camera, and passed zero-motion HTTP and iPhone landscape checks, but no paired optimization candidate was measured."
   },
   "remaining_uncertainty": [
-    "Physical joystick actuation was deliberately not tested on the robot.",
+    "Physical joystick dragging was not tested during this UI deployment.",
     "The direct motion path does not provide obstacle avoidance.",
     "The deployment builder had a different cache state from the final local optimizer build, so their cache counts are not interchangeable.",
     "A selective service deployment retained older app-group version metadata even though the live HTTP configuration and entitlement are current.",
-    "The requested agent-first installation branch was unavailable; the existing verified DLO 0.5.0b1 executable recorded the work."
+    "The live camera depends on the separately running Border Collie media sidecar."
   ]
 }
