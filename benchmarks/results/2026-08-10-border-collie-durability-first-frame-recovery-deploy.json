@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "media_first_frame_and_signaling_cooldown_recovery",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "a9c9d59ea2cfd3ec614d32bac8907ef6cfe2473cc53be5744c6026f1b5622b70"
+  },
+  "context": {
+    "recorded_root_observation_bytes": 303554,
+    "complete_multiservice_context_bytes": null
+  },
+  "deployment": {
+    "duration_seconds": 105.546,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 54.944,
+      "export": 46.363,
+      "transfer": 0.024,
+      "unpack": 0.067,
+      "replacement": 1.079,
+      "readiness": 2.782,
+      "unclassified": 0.287
+    }
+  },
+  "cache": {
+    "service_build_cached_steps": null,
+    "service_build_rebuilt_steps": null,
+    "observed_media_device_layers_total": 53,
+    "observed_media_device_layers_reused": 52,
+    "observed_media_device_layers_applied": 1,
+    "app_device_layer_counts": null
+  },
+  "images": {
+    "count": 2,
+    "aggregate_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "unclassified_seconds": 0.287
+  },
+  "readiness_verification": {
+    "release_pair_matched": true,
+    "activation_ready": true,
+    "camera_generation_stable": true,
+    "camera_pts_advanced": true,
+    "supervisor_attempts": 1,
+    "supervisor_restarts": 0,
+    "bark_ready": true,
+    "motion_executed": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": true,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "This is one deployment observation, not a paired performance trial.",
+    "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
+    "The shared builder restored large cached media layers after a builder restart, which dominates the observed build and export phases.",
+    "The recorded context size covers the root Dockerfile observation and not the complete multi-service media context.",
+    "Exact observer overhead, compressed registry transfer bytes, and app device layer counts were not emitted.",
+    "Application readiness was verified after deployment, but no Demo Run or physical motion was executed."
+  ]
+}
