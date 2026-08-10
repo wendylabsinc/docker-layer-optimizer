@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "whole_app_stagefile_deployment",
+  "change_class": "failed_run_home_recovery_reserve",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": {
+    "app_stagefile_generated_sha256": "4b76f42c2c9f852d2b8aaefd133b5aca9d0dc35729828947b8d75b5aed53aea5",
+    "media_stagefile_generated_sha256": "c4a8fd16c7e6ff8cafd41173c0c6aa416a2d954a2e23942a538f0cb2d9b3b0fb"
+  },
+  "context": {
+    "app_dlo_snapshot_bytes": 680641,
+    "media_dlo_noop_snapshot_bytes": 258
+  },
+  "local_build_observations": {
+    "app": {
+      "duration_seconds": 49.105,
+      "steps": {
+        "total": 9,
+        "resolved": 1,
+        "cached": 0,
+        "rebuilt": 8,
+        "failed": 0
+      },
+      "image": {
+        "count": 1,
+        "size_bytes": 219822129,
+        "layer_count": 9
+      },
+      "observer": {
+        "wrapper_seconds": 50.948472,
+        "non_build_seconds": 1.842484,
+        "inspection_seconds": 0.021928
+      }
+    },
+    "media_reference": {
+      "cache_state": "prior_immediate_noop_verification",
+      "duration_seconds": 0.323,
+      "steps": {
+        "total": 8,
+        "resolved": 1,
+        "cached": 7,
+        "rebuilt": 0,
+        "failed": 0
+      },
+      "image": {
+        "count": 1,
+        "size_bytes": 6320112670,
+        "layer_count": 53,
+        "reused_layers": 53
+      },
+      "observer": {
+        "wrapper_seconds": 0.388734,
+        "non_build_seconds": 0.064434,
+        "inspection_seconds": 0.039202
+      }
+    }
+  },
+  "deployment": {
+    "status": "success",
+    "duration_seconds": 101.922,
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 51.537,
+      "export": 45.805,
+      "transfer": 0.032,
+      "unpack": 0.076,
+      "replacement": 0.668,
+      "readiness": 2.813,
+      "unclassified": 0.991
+    }
+  },
+  "image_layers": {
+    "app_total": 9,
+    "media_total": 53,
+    "aggregate_total": 62,
+    "note": "Layer totals come from DLO image inspection; the Wendy deployment did not emit per-layer cache hit counts."
+  },
+  "result": {
+    "build_passed": true,
+    "deployment_passed": true,
+    "robot_recovery_passed": true,
+    "recovery_terminal_home_distance_m": 0.08960527183605113,
+    "soak_started": false,
+    "optimization_claim": false,
+    "reason": "Both Stagefile services deployed and the bounded correction recovered Home, but the device later became unreachable before media readiness and before a new soak activation."
+  },
+  "remaining_uncertainty": [
+    "Concurrent service builds overlap, so service wall times do not sum to the deployment build phase.",
+    "The deployment restored large cached media layers and did not expose exact cached versus rebuilt step counts.",
+    "Exact compressed bytes pushed were not emitted.",
+    "The device became unreachable after confirmed recovery and before camera, bark, thermal, or soak validation; the cause is unknown until device logs are available.",
+    "This is one deployment observation, not a controlled performance comparison."
+  ]
+}
