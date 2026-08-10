@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "wendylabsinc/vibration-tower",
+  "component": "rumble_ui",
+  "change_class": "remove_heuristic_classification",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "5f9194db4cebae23d2207f7196c815243cc79bdfe2ec3f978110f4e5573d1299"
+  },
+  "context": {
+    "bytes": 261592,
+    "measurement": "optimizer_builder_output"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 1.177,
+    "cached_steps": 2,
+    "rebuilt_steps": 2,
+    "resolved_steps": 1,
+    "failed_steps": 0
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target": "vibration_pi",
+    "status": "success",
+    "duration_seconds": 13.564,
+    "readiness_seconds": 2.307,
+    "unclassified_seconds": 11.257,
+    "device_layers_reused": 6,
+    "device_layers_applied": 2
+  },
+  "image_and_layers": {
+    "measured_image_count": 1,
+    "measured_layer_count": 8,
+    "new_layers": 8,
+    "reused_layers_in_local_build": 0,
+    "measured_image_size_bytes": 48215067
+  },
+  "observer": {
+    "non_build_overhead_seconds": 0.022899,
+    "inspection_seconds": 0.021897,
+    "snapshot_seconds": 0.001002
+  },
+  "correctness": {
+    "project_tests_passed": 6,
+    "trained_model_card_present": true,
+    "heuristic_classification_card_present": false,
+    "connected_sensors": 3,
+    "expected_sensors": 3,
+    "motor_state": "idle",
+    "motor_duty": 0.0,
+    "physical_motion_commanded": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "This is one measured build and deployment of a correctness change, without a paired performance baseline."
+  },
+  "remaining_uncertainty": [
+    "Only one successful optimizer build of this Dockerfile revision was measured.",
+    "The deployment report did not expose exact transferred bytes or per-layer byte sizes.",
+    "No paired baseline and candidate were measured, so this result does not support an optimization claim.",
+    "The requested agent-first installation branch was unavailable; the existing verified DLO 0.5.0b1 executable recorded the work."
+  ]
+}
