@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-10",
+  "source_repository": "G1-Modcon-Demo",
+  "source_commit": "866e82ef4cb609996cca09415c2c46e4c051e0b3",
+  "component": "person-recognition lab",
+  "change_class": "candidate_identity_label_and_face_wait_state",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "f2babdba06899db9a3288faed441d13d2d33bbc3399f997b2046827e32e9ce42"
+  },
+  "context": {
+    "bytes": 17458,
+    "measurement": "dlo_build_context"
+  },
+  "build": {
+    "platform": "linux/arm64",
+    "status": "success",
+    "duration_seconds": 2.624,
+    "cached_steps": 4,
+    "rebuilt_steps": 6,
+    "resolved_steps": 1,
+    "failed_steps": 0
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target": "wendystudio-parakeet-demo",
+    "status": "success",
+    "duration_seconds": 35.56,
+    "phase_seconds": {
+      "build": 9.766,
+      "export": 12.515,
+      "transfer": 0.016,
+      "unpack": 9.906,
+      "replacement": 0.234,
+      "readiness": 2.44
+    },
+    "unclassified_seconds": 0.683
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "image_bytes": 352865061,
+    "layer_count": 14,
+    "reused_layers": 9,
+    "new_layers": 5,
+    "removed_layers": 5
+  },
+  "observer": {
+    "build_wrapper_seconds": 2.901705,
+    "build_non_build_seconds": 0.275936,
+    "build_inspection_seconds": 0.022236,
+    "build_snapshot_seconds": 0.2537,
+    "deployment_unclassified_seconds": 0.683
+  },
+  "correctness": {
+    "project_tests_passed": 13,
+    "live_processing_fps_range": [
+      7.8,
+      8.0
+    ],
+    "body_candidate_label_observed": "Oliver?",
+    "confirmed_label_requires_face_and_consecutive_frames": true,
+    "non_person_shape_is_not_labeled": true,
+    "live_gate_opened": false,
+    "motion_activated_during_verification": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "This measured a feature deployment, not a controlled Dockerfile optimization comparison."
+  },
+  "remaining_uncertainty": [
+    "The source application files were untracked in the source repository at measurement time, so the recorded source commit does not contain the measured changes.",
+    "Only one final build and deployment were measured.",
+    "The live IPC-BO stream is effectively grayscale and did not provide a usable face during verification.",
+    "The Realtek USB hubs reported no connected downstream RGB camera, so RGB and face-recognition quality remain unverified."
+  ]
+}
