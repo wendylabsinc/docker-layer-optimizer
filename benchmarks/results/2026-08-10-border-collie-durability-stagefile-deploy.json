@@ -18,24 +18,25 @@
     "complete_multiservice_context_bytes": null
   },
   "deployment": {
-    "observations": 3,
+    "observations": 4,
     "duration_seconds": [
       107.66,
       98.974,
-      106.753
+      106.753,
+      105.356
     ],
-    "median_duration_seconds": 106.753,
+    "median_duration_seconds": 106.0545,
     "status": "success",
     "phase_source": "output-markers",
     "dominant_phase": "build",
     "median_phases_seconds": {
-      "build": 55.875,
-      "export": 45.022,
-      "transfer": 0.048,
-      "unpack": 0.06,
-      "replacement": 0.882,
-      "readiness": 2.656,
-      "unclassified": 0.412
+      "build": 55.317,
+      "export": 45.571,
+      "transfer": 0.043,
+      "unpack": 0.03,
+      "replacement": 0.883,
+      "readiness": 2.659,
+      "unclassified": 0.543
     }
   },
   "cache": {
@@ -51,7 +52,7 @@
   },
   "observer": {
     "overhead_seconds": null,
-    "median_unclassified_seconds": 0.412
+    "median_unclassified_seconds": 0.543
   },
   "result": {
     "built": true,
@@ -65,7 +66,7 @@
     "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
     "The recorded context size covers the root Dockerfile observation and not the complete multi-service media context.",
     "Exact observer overhead and compressed registry transfer bytes were not emitted.",
-    "The third deployment reached stable camera, bark, and fresh LiDAR readiness after two supervised WebRTC retry attempts.",
+    "The third deployment reached stable camera, bark, and fresh LiDAR readiness after two supervised WebRTC retry attempts; the fourth deployment was still awaiting media stabilization at the first post-replacement sample.",
     "The physical pear remained below the camera at the calibrated 19.7-inch endpoint, so no autonomous run was activated; physical stopping distance remains unqualified."
   ]
 }
