@@ -13,12 +13,12 @@
     "sha256": "6be28c5831bb0ffdcfc023b5b6b3fffff552922d5d1bdb336e079a115429c456"
   },
   "context": {
-    "bytes": 107680,
+    "bytes": 11030,
     "measurement": "cached_feature_build_observation"
   },
   "build": {
     "status": "success",
-    "duration_seconds": 5.696,
+    "duration_seconds": 5.153,
     "cached_steps": 6,
     "rebuilt_steps": 8,
     "resolved_steps": 1,
@@ -29,7 +29,7 @@
     "adapter": "wendy",
     "target_class": "jetson_orin_nano",
     "status": "success",
-    "duration_seconds": 52.0,
+    "duration_seconds": 58.0,
     "phase_seconds": null
   },
   "image_and_layers": {
@@ -37,23 +37,26 @@
     "aggregate_layer_count": 16,
     "new_layers_without_baseline": 16,
     "reused_layers_without_baseline": 0,
-    "image_size_bytes": 449735021
+    "image_size_bytes": 449736667
   },
   "observer": {
-    "build_wrapper_seconds": 6.46644,
-    "build_non_build_overhead_seconds": 0.769375,
-    "inspection_seconds": 0.100603,
-    "snapshot_seconds": 0.668772,
+    "build_wrapper_seconds": 5.590483,
+    "build_non_build_overhead_seconds": 0.436238,
+    "inspection_seconds": 0.036931,
+    "snapshot_seconds": 0.399307,
     "deployment_wrapper_required_manual_exit_after_readiness": true
   },
   "correctness": {
-    "container_tests_passed": 26,
-    "app_version": "0.3.0",
+    "container_tests_passed": 27,
+    "app_version": "0.3.2",
     "app_running": true,
     "camera_online": true,
     "camera_reconnects": 0,
-    "processing_fps_observed": 7.94,
-    "guided_face_scan_completed_live": false,
+    "processing_fps_observed": 7.857,
+    "guided_face_scan_completed_live": true,
+    "guided_face_views": ["frontal", "left", "right", "up", "down"],
+    "post_enrollment_face_score": 0.7192,
+    "post_enrollment_combined_score": 0.8988,
     "legacy_face_samples_preserved": true,
     "perception_only": true,
     "motion_activated": false
@@ -65,9 +68,9 @@
     "reason": "The face-primary policy was built and deployed, but no paired Dockerfile control and candidate were measured."
   },
   "remaining_uncertainty": [
-    "The five guided pose buckets have software coverage but have not yet been completed by the live operator.",
     "The hoodie and distractor acceptance sequence still needs live score capture after guided re-enrollment.",
-    "The revised synthesized phrase completed preparation but listener clarity has not yet been confirmed.",
+    "The revised phrase was prepared but could not play because the prior USB ALSA card was absent from host and container enumeration.",
+    "Live left and right detector coordinates were opposite the operator-facing direction, so UI direction labels still need camera-orientation calibration.",
     "The deployment wrapper stayed attached after readiness and was terminated locally; live app state and advancing frames were independently verified afterward.",
     "No paired Dockerfile control and candidate were measured, so no Docker layer optimization is claimed."
   ]
