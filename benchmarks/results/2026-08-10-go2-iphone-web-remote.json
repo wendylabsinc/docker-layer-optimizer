@@ -3,7 +3,7 @@
   "date": "2026-08-10",
   "source_repository": "wendylabsinc/go2-iphone-remote",
   "component": "iphone_web_remote",
-  "change_class": "always_visible_arm_header_control",
+  "change_class": "polished_iphone_overflow_layout",
   "tool": {
     "name": "docker-layer-optimizer",
     "version": "0.5.0b1",
@@ -13,13 +13,13 @@
     "sha256": "e26e2bed9eb735cb04dd9aae4e16d192d23e7f2515bcc92a19e986e58c9e0b60"
   },
   "context": {
-    "bytes": 49220,
+    "bytes": 50780,
     "measurement": "final_local_optimizer_build"
   },
   "build": {
     "status": "success",
     "platform": "linux/arm64",
-    "duration_seconds": 0.893,
+    "duration_seconds": 1.067,
     "steps_total": 9,
     "steps_cached": 6,
     "steps_rebuilt": 2,
@@ -27,7 +27,7 @@
     "steps_failed": 0
   },
   "image_and_layers": {
-    "image_bytes": 290412476,
+    "image_bytes": 290412765,
     "layers_total": 12,
     "layers_reused": 0,
     "layers_new": 12,
@@ -37,22 +37,22 @@
   "deployment": {
     "status": "success",
     "adapter": "wendy",
-    "duration_seconds": 10.907,
-    "build_seconds": 8.299,
-    "export_seconds": 0.359,
-    "transfer_seconds": 0.021,
-    "unpack_seconds": 0.067,
-    "replacement_seconds": 0.224,
-    "readiness_seconds": 1.656
+    "duration_seconds": 65.27,
+    "build_seconds": 62.56,
+    "export_seconds": 0.458,
+    "transfer_seconds": 0.02,
+    "unpack_seconds": 0.057,
+    "replacement_seconds": 0.22,
+    "readiness_seconds": 1.668
   },
   "observer": {
-    "build_wrapper_seconds": 0.916829,
-    "build_non_build_overhead_seconds": 0.022841,
-    "build_inspection_seconds": 0.022089,
-    "build_snapshot_seconds": 0.000752
+    "build_wrapper_seconds": 1.093157,
+    "build_non_build_overhead_seconds": 0.025491,
+    "build_inspection_seconds": 0.024638,
+    "build_snapshot_seconds": 0.000853
   },
   "correctness": {
-    "project_tests_passed": 11,
+    "project_tests_passed": 12,
     "container_api_contract_checks_passed": 7,
     "responsive_viewports_verified": 1,
     "declared_http_port_discovered": true,
@@ -67,6 +67,11 @@
     "arm_control_visible_with_menu_closed": true,
     "arm_control_absent_from_overflow_menu": true,
     "deployed_menu_states_verified": 2,
+    "horizontal_overflow_closed_px": 0,
+    "horizontal_overflow_open_px": 0,
+    "menu_width_bounded_to_viewport": true,
+    "menu_height_bounded_to_viewport": true,
+    "landscape_status_separated_from_header": true,
     "standard_gamepad_mapping_tested": true,
     "controller_deadzone_tested": true,
     "controller_release_and_disconnect_stop_contract": true,
@@ -79,7 +84,7 @@
     "built": true,
     "deployed": true,
     "optimization_claim": false,
-    "reason": "The remote built, deployed, kept arm and disarm visible outside the overflow menu, served the raw Go2 front camera, and passed zero-motion safety checks, but no paired optimization candidate was measured."
+    "reason": "The remote built, deployed, removed header and menu overflow, added compact iPhone breakpoints, served the raw Go2 front camera, and passed zero-motion safety checks, but no paired optimization candidate was measured."
   },
   "remaining_uncertainty": [
     "A physical game controller paired to an iPhone was not exercised during this zero-motion deployment.",
