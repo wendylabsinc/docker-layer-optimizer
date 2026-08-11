@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "bottom_clip_closeout_stagefile_deployment",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "root_generated_sha256": "291c8e444b55c67c665a71143cd5ad88c821d90669b4e18d6ee744b5d97a569f",
+    "media_generated_sha256": "45cf38e7747de01050770860be1bf84599c4cafc2942fac61cb34880cd629c8e"
+  },
+  "context": {
+    "complete_multiservice_context_bytes": null
+  },
+  "deployment": {
+    "duration_seconds": 142.587,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "phases_seconds": {
+      "build": 84.179,
+      "export": 54.241,
+      "transfer": 0.044,
+      "unpack": 0.081,
+      "replacement": 0.917,
+      "readiness": 2.784,
+      "unclassified": 0.341
+    }
+  },
+  "cache": {
+    "service_build_cached_steps": null,
+    "service_build_rebuilt_steps": null
+  },
+  "images": {
+    "count": 2,
+    "observed_aggregate_device_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "unclassified_seconds": 0.341
+  },
+  "readiness_verification": {
+    "release_pair_matched": true,
+    "activation_ready": true,
+    "camera_generation_stable": true,
+    "camera_pts_advanced": true,
+    "media_restarts": 0,
+    "bark_ready": true,
+    "motion_disarmed": true
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": true,
+    "physical_run_started": false,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "This is one deployment observation, not a paired performance trial.",
+    "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so exact per-service cache and rebuild counts are unavailable.",
+    "The complete multi-service context size was not emitted.",
+    "Exact observer overhead, device-layer reuse counts, aggregate layer counts, and compressed registry transfer bytes were not emitted.",
+    "Readiness and disarm were verified, but no physical Demo Run was started and bottom-clipped closeout behavior remains physically unqualified."
+  ]
+}
