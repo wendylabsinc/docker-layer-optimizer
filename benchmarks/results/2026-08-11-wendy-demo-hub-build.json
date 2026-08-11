@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendy-demo-hub",
+  "component": "room_demo_link_dashboard",
+  "change_class": "initial_brand_aligned_room_catalog",
+  "publication_status": "local_incubation",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "ac60fb35d87fc469c43083e8154767d542eb8b42d0ec52f643b88f79cc4efcac"
+  },
+  "measurements": [
+    {
+      "context_bytes": 219093,
+      "duration_seconds": 16.882,
+      "cached_steps": 0,
+      "rebuilt_steps": 4,
+      "resolved_steps": 1,
+      "failed_steps": 0,
+      "image_size_bytes": 46540361,
+      "layers_total": 8,
+      "layers_reused": 0,
+      "layers_new": 8,
+      "observer_wrapper_seconds": 16.941892,
+      "observer_non_build_seconds": 0.058485,
+      "observer_inspection_seconds": 0.046507,
+      "observer_snapshot_seconds": 0.011978
+    },
+    {
+      "context_bytes": 12182,
+      "duration_seconds": 21.862,
+      "cached_steps": 2,
+      "rebuilt_steps": 2,
+      "resolved_steps": 1,
+      "failed_steps": 0,
+      "image_size_bytes": 46540369,
+      "layers_total": 8,
+      "layers_reused": 6,
+      "layers_new": 2,
+      "observer_wrapper_seconds": 23.544274,
+      "observer_non_build_seconds": 1.671527,
+      "observer_inspection_seconds": 1.668536,
+      "observer_snapshot_seconds": 0.002992
+    }
+  ],
+  "aggregate": {
+    "measured_builds": 2,
+    "successful_builds": 2,
+    "failed_builds": 0,
+    "median_duration_seconds": 19.372,
+    "cache_counts": [0, 2],
+    "rebuild_counts": [4, 2],
+    "final_image_size_bytes": 46540369,
+    "final_layer_count": 8,
+    "observer_wrapper_seconds_total": 40.486166
+  },
+  "correctness": {
+    "project_tests_passed": 7,
+    "javascript_syntax_check_passed": true,
+    "clean_container_health_http_status": 200,
+    "clean_container_registry_links": 5,
+    "desktop_viewport_verified": true,
+    "mobile_viewport": "390x844",
+    "mobile_horizontal_overflow_px": 0,
+    "physical_motion_commanded_during_validation": false
+  },
+  "result": {
+    "built": true,
+    "deployed": false,
+    "optimization_claim": false,
+    "reason": "The room hub built twice and passed local, clean-container, desktop, and mobile checks. No conservative optimizer candidate was proposed and no device deployment was performed."
+  },
+  "remaining_uncertainty": [
+    "No paired Dockerfile candidate was measured, so no optimization is claimed.",
+    "The second observation followed a stylesheet-only correction and does not represent a controlled warm-cache benchmark.",
+    "Compressed transfer bytes and device deployment phases were not measured because the image was not deployed.",
+    "The live room inventory depends on local Wendy CLI access; the clean container was verified only in registry-fallback mode."
+  ]
+}
