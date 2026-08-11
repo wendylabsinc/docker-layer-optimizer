@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo and wendylabsinc/g1-demo-recorder",
+  "component": "main-demo boot dependencies",
+  "change_class": "lifecycle_redeploy_to_clear_stopped_by_user",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfiles": [
+    {
+      "component": "g1-demo-recorder",
+      "sha256": "30a09c68002e0fa148acd8e21b2687b0fd3454ffa6462aa5ddc7b85ba60f9278",
+      "context_bytes": 271360,
+      "deployment_duration_seconds": 60.477,
+      "deployment_build_seconds": 54.178,
+      "device_layers_total": 8,
+      "device_layers_reused": 4,
+      "device_layers_applied": 4,
+      "deployment_unclassified_seconds": 0.286
+    },
+    {
+      "component": "g1-r3-envelope-trigger",
+      "sha256": "46e98a27824b7501a0ee47740d58cd498dcab6b2dc7054cb064cafaa7a2f980f",
+      "context_bytes": 26125,
+      "deployment_duration_seconds": 64.416,
+      "deployment_build_seconds": 53.294,
+      "device_layers_total": 8,
+      "device_layers_reused": 4,
+      "device_layers_applied": 4,
+      "deployment_unclassified_seconds": 0.205
+    }
+  ],
+  "aggregate": {
+    "context_bytes": 297485,
+    "image_count": 2,
+    "layer_count": 16,
+    "cached_or_reused_layer_count": 8,
+    "rebuilt_or_applied_layer_count": 8,
+    "deployment_duration_seconds": 124.893,
+    "phase_seconds": {
+      "build": 107.472,
+      "export": 5.154,
+      "transfer": 0.107,
+      "unpack": 4.463,
+      "replacement": 1.266,
+      "readiness": 5.94
+    },
+    "observer_unclassified_seconds": 0.491
+  },
+  "correctness": {
+    "apps_running": 3,
+    "services_running": 6,
+    "restart_policy": "unless-stopped",
+    "stopped_by_user_markers_present": 0,
+    "main_demo_phase": "disarmed",
+    "main_demo_last_command": {
+      "vx": 0.0,
+      "vy": 0.0,
+      "vyaw": 0.0
+    },
+    "recorder_mode": "idle",
+    "fallback_action_active": false,
+    "physical_motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "boot_loading_configuration_restored": true,
+    "optimization_claim": false,
+    "reason": "This was a lifecycle repair and verification, not a paired Dockerfile optimization benchmark."
+  },
+  "remaining_uncertainty": [
+    "No physical reboot was performed, so boot restoration is supported by the verified restart labels and Wendy boot-reconcile behavior rather than a fresh power-cycle observation.",
+    "The deployment adapter did not emit separate current build events, so Dockerfile-step cache and rebuild counts are unavailable; the reported cache and rebuild counts are device-layer reuse and application counts from Wendy's unpack plan.",
+    "Startup readiness still depends on the camera and robot DDS dependencies becoming available; all motion remains gated behind explicit START."
+  ]
+}
