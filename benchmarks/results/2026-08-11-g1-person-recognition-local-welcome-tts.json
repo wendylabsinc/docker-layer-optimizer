@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "cached_local_welcome_tts",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "6be28c5831bb0ffdcfc023b5b6b3fffff552922d5d1bdb336e079a115429c456"
+  },
+  "context": {
+    "bytes": 54350,
+    "measurement": "cold_feature_build_observation"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 62.563,
+    "cached_steps": 1,
+    "rebuilt_steps": 14,
+    "resolved_steps": 0,
+    "failed_steps": 0,
+    "total_steps": 15
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target_class": "jetson_orin_nano",
+    "status": "success",
+    "duration_seconds": 146.36,
+    "phase_seconds": {
+      "build": 31.489,
+      "export": 47.86,
+      "transfer": 0.003,
+      "unpack": 65.607,
+      "replacement": 0.804,
+      "readiness": 0.144
+    },
+    "unclassified_seconds": 0.453
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 16,
+    "new_layers_without_baseline": 16,
+    "reused_layers_without_baseline": 0,
+    "image_size_bytes": 449721745
+  },
+  "observer": {
+    "build_wrapper_seconds": 63.302241,
+    "build_non_build_overhead_seconds": 0.737757,
+    "inspection_seconds": 0.034596,
+    "snapshot_seconds": 0.703161,
+    "deployment_unclassified_seconds": 0.453
+  },
+  "correctness": {
+    "container_tests_passed": 18,
+    "app_version": "0.2.0",
+    "app_running": true,
+    "camera_online": true,
+    "camera_reconnects": 0,
+    "processing_fps_observed": 7.918,
+    "average_processing_ms_observed": 88.109,
+    "tts_backend": "Piper ONNX CPU",
+    "tts_voice": "en_US-lessac-medium",
+    "cached_phrase_duration_seconds": 2.11,
+    "usb_alsa_playback_exit_code": 0,
+    "greeting_inference_blocks_camera_loop": false,
+    "perception_only": true,
+    "motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "local_tts_playback_invoked": true,
+    "optimization_claim": false,
+    "reason": "The cached local welcome-TTS path was built and deployed, but no paired Dockerfile control and candidate were measured."
+  },
+  "remaining_uncertainty": [
+    "The final camera frame contained an empty chair, so the automatic confirmed-identity-to-greeting transition was covered by tests but not exercised by a live person-present lock.",
+    "A successful ALSA playback process does not independently prove that an operator heard the connected speaker.",
+    "The added neural voice and audio packages increased the observed local image size; no smaller quality-equivalent model variant was compared.",
+    "No paired Dockerfile control and candidate were measured, so no Docker layer optimization is claimed."
+  ]
+}
