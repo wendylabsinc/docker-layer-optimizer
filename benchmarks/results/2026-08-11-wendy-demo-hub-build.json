@@ -45,27 +45,45 @@
       "observer_non_build_seconds": 1.671527,
       "observer_inspection_seconds": 1.668536,
       "observer_snapshot_seconds": 0.002992
+    },
+    {
+      "context_bytes": 193739,
+      "duration_seconds": 16.343,
+      "cached_steps": 0,
+      "rebuilt_steps": 4,
+      "resolved_steps": 1,
+      "failed_steps": 0,
+      "image_size_bytes": 46529393,
+      "layers_total": 8,
+      "layers_reused": 4,
+      "layers_new": 4,
+      "observer_wrapper_seconds": 16.424167,
+      "observer_non_build_seconds": 0.079052,
+      "observer_inspection_seconds": 0.075778,
+      "observer_snapshot_seconds": 0.003274
     }
   ],
   "aggregate": {
-    "measured_builds": 2,
-    "successful_builds": 2,
+    "measured_builds": 3,
+    "successful_builds": 3,
     "failed_builds": 0,
-    "median_duration_seconds": 19.372,
-    "cache_counts": [0, 2],
-    "rebuild_counts": [4, 2],
-    "final_image_size_bytes": 46540369,
+    "median_duration_seconds": 16.882,
+    "cache_counts": [0, 2, 0],
+    "rebuild_counts": [4, 2, 4],
+    "final_image_size_bytes": 46529393,
     "final_layer_count": 8,
-    "observer_wrapper_seconds_total": 40.486166
+    "observer_wrapper_seconds_total": 56.910333
   },
   "correctness": {
-    "project_tests_passed": 8,
+    "project_tests_passed": 9,
     "javascript_syntax_check_passed": true,
     "clean_container_health_http_status": 200,
     "clean_container_registry_links": 5,
     "desktop_viewport_verified": true,
     "mobile_viewport": "390x844",
     "mobile_horizontal_overflow_px": 0,
+    "mobile_device_directory_columns": 2,
+    "device_groups_collapsed_in_interaction_test": 7,
     "physical_motion_commanded_during_validation": false
   },
   "result": {
