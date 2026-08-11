@@ -18,25 +18,26 @@
     "complete_multiservice_context_bytes": null
   },
   "deployment": {
-    "observations": 4,
+    "observations": 5,
     "duration_seconds": [
       107.66,
       98.974,
       106.753,
-      105.356
+      105.356,
+      145.98
     ],
-    "median_duration_seconds": 106.0545,
+    "median_duration_seconds": 106.753,
     "status": "success",
     "phase_source": "output-markers",
     "dominant_phase": "build",
     "median_phases_seconds": {
-      "build": 55.317,
-      "export": 45.571,
-      "transfer": 0.043,
-      "unpack": 0.03,
-      "replacement": 0.883,
-      "readiness": 2.659,
-      "unclassified": 0.543
+      "build": 55.875,
+      "export": 46.12,
+      "transfer": 0.048,
+      "unpack": 0.05,
+      "replacement": 0.884,
+      "readiness": 2.662,
+      "unclassified": 0.412
     }
   },
   "cache": {
@@ -62,11 +63,12 @@
     "optimization_claim": false
   },
   "remaining_uncertainty": [
-    "These are two deployments in uncontrolled cache states, not a paired Stagefile-versus-Dockerfile performance trial.",
+    "These are five deployments in uncontrolled cache states, not a paired Stagefile-versus-Dockerfile performance trial.",
     "The deployment adapter reports one aggregate build segment even though Wendy built two services concurrently, so per-service cache and rebuild counts are unavailable.",
     "The recorded context size covers the root Dockerfile observation and not the complete multi-service media context.",
     "Exact observer overhead and compressed registry transfer bytes were not emitted.",
     "The third and fourth deployments reached stable camera, bark, and fresh LiDAR readiness after two supervised WebRTC retry attempts each.",
-    "The physical pear remained below the camera at the calibrated 19.7-inch endpoint, so no autonomous run was activated; physical stopping distance remains unqualified."
+    "The fifth deployment used source commit 4d9950adad16eec8cff5e2345f9b57396fe9a87c and release durability-foundation-v13-centered-handoff-recovery; its 145.98-second total comprised 91.046 seconds build, 50.591 export, 0.056 transfer, 0.050 unpack, 1.166 replacement, 2.725 readiness, and 0.346 unclassified.",
+    "The v13 deployment reached application activation readiness with both services on the exact release, but its physical pear run began at 15 percent battery, so battery state remains a confounder for motion qualification."
   ]
 }
