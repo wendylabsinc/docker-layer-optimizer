@@ -59,7 +59,7 @@
     "observer_wrapper_seconds_total": 40.486166
   },
   "correctness": {
-    "project_tests_passed": 7,
+    "project_tests_passed": 8,
     "javascript_syntax_check_passed": true,
     "clean_container_health_http_status": 200,
     "clean_container_registry_links": 5,
