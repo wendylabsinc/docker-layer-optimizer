@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "multi_person_door_greeter",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "6be28c5831bb0ffdcfc023b5b6b3fffff552922d5d1bdb336e079a115429c456"
+  },
+  "context": {
+    "bytes": 83089,
+    "measurement": "optimizer_build_context"
+  },
+  "build": {
+    "status": "success",
+    "platform": "linux/arm64",
+    "duration_seconds": 6.964,
+    "cached_steps": 6,
+    "rebuilt_steps": 8,
+    "resolved_steps": 1,
+    "failed_steps": 0,
+    "total_steps": 15
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target_class": "jetson_orin_nano",
+    "status": "success",
+    "duration_seconds_approximate": 42.0,
+    "compressed_bytes_transferred": null
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 16,
+    "new_layers_without_baseline": 16,
+    "reused_layers_without_baseline": 0,
+    "image_size_bytes": 449778462
+  },
+  "observer": {
+    "build_wrapper_seconds": 7.458029,
+    "build_non_build_overhead_seconds": 0.492567,
+    "inspection_seconds": 0.055407,
+    "snapshot_seconds": 0.43716
+  },
+  "correctness": {
+    "container_tests_passed": 50,
+    "app_version": "0.7.0",
+    "app_running": true,
+    "camera_online": true,
+    "camera_reconnects": 0,
+    "processing_fps_observed": 10.011,
+    "simultaneous_identity_state_supported": true,
+    "duplicate_identity_assignment_prevented": true,
+    "grouped_arrival_greeting_supported": true,
+    "profile_capacity": 250,
+    "private_evaluation_data_in_running_image": false,
+    "perception_only": true,
+    "motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "optimization_claim": false,
+    "reason": "The optimizer reported no Dockerfile candidate and no paired Dockerfile control and candidate were measured."
+  },
+  "remaining_uncertainty": [
+    "Only one final privacy-safe build and deployment were measured.",
+    "The deployment duration is approximate because the adapter output did not provide a complete phase breakdown.",
+    "The device unpack reported the aggregate layer count, but did not emit exact compressed transfer bytes.",
+    "Live simultaneous recognition and grouped audible playback still require a scene containing multiple enrolled people.",
+    "The deployed compatibility image uses CPU inference; a device-compatible accelerated artifact remains to be qualified separately."
+  ]
+}
