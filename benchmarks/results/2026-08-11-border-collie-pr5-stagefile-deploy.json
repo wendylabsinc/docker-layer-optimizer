@@ -16,24 +16,25 @@
     "bytes": null
   },
   "deployment": {
-    "observations": 3,
+    "observations": 4,
     "duration_seconds": [
       105.891,
       106.96,
-      133.07
+      133.07,
+      134.524
     ],
-    "median_duration_seconds": 106.96,
+    "median_duration_seconds": 120.015,
     "status": "success",
     "phase_source": "output-markers",
     "dominant_phase": "build",
     "median_phases_seconds": {
-      "build": 54.886,
-      "export": 45.885,
-      "transfer": 0.041,
+      "build": 67.208,
+      "export": 47.6065,
+      "transfer": 0.043,
       "unpack": 0.09,
-      "replacement": 0.934,
-      "readiness": 2.694,
-      "unclassified": 1.437
+      "replacement": 0.933,
+      "readiness": 2.7015,
+      "unclassified": 0.9645
     }
   },
   "cache": {
@@ -46,7 +47,7 @@
   },
   "observer": {
     "overhead_seconds": null,
-    "median_unclassified_seconds": 1.437
+    "median_unclassified_seconds": 0.9645
   },
   "result": {
     "built": true,
@@ -56,9 +57,9 @@
     "optimization_claim": false
   },
   "remaining_uncertainty": [
-    "The three deployments used uncontrolled cache states and are not a paired Stagefile-versus-Dockerfile trial.",
+    "The four deployments used uncontrolled cache states and are not a paired Stagefile-versus-Dockerfile trial.",
     "The adapter reports one aggregate build segment for the concurrent two-service build, so per-service cache and rebuild counts are unavailable.",
     "Context size, image layer aggregates, compressed transfer bytes, and exact observer overhead were not emitted.",
-    "The third deployment installed the camera-only stage closeout profile and verified both services ready and motion disarmed, but no physical fruit run was performed; physical success and final clearance remain unqualified."
+    "The fourth deployment installed the lineage documentation commit with the same camera-only runtime identity. Its supervised pear run completed Arrival and audience action but failed heading restoration after Home distance grew from 0.079 m to 0.124 m; physical clearance and repeatability remain unqualified."
   ]
 }
