@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "camera_system_socket_lifecycle_recovery",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "f2babdba06899db9a3288faed441d13d2d33bbc3399f997b2046827e32e9ce42"
+  },
+  "context": {
+    "bytes": 1314,
+    "measurement": "warm_cache_build_observation"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 1.426,
+    "cached_steps": 10,
+    "rebuilt_steps": 0,
+    "resolved_steps": 1,
+    "failed_steps": 0,
+    "total_steps": 11
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target_class": "jetson_orin_nano",
+    "status": "success",
+    "duration_seconds": 21.293,
+    "phase_seconds": {
+      "build": 10.283,
+      "export": 8.531,
+      "transfer": 0.021,
+      "unpack": null,
+      "replacement": 0.198,
+      "readiness": 1.846
+    },
+    "unclassified_seconds": 0.414
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 14,
+    "new_layers_without_baseline": 14,
+    "reused_layers_without_baseline": 0,
+    "image_size_bytes": 352865061
+  },
+  "observer": {
+    "build_wrapper_seconds": 1.705194,
+    "build_non_build_overhead_seconds": 0.278286,
+    "inspection_seconds": 0.026675,
+    "snapshot_seconds": 0.251611,
+    "deployment_unclassified_seconds": 0.414
+  },
+  "correctness": {
+    "app_running": true,
+    "perception_only": true,
+    "motion_activated": false,
+    "camera_entitlement_label": "present=true",
+    "private_socket_recreated_after_agent_restart": true,
+    "read_only_socket_mount_present": true,
+    "system_api_reachable_after_agent_restart": true,
+    "camera_online": false,
+    "camera_error": "camera 200 is offline"
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "socket_lifecycle_verified": true,
+    "optimization_claim": false,
+    "reason": "The camera System API socket lifecycle fix was validated live across an agent restart. No paired Dockerfile optimization candidate was measured."
+  },
+  "remaining_uncertainty": [
+    "Camera 200 remained offline, so advancing frames and recognition inference were not revalidated in this run.",
+    "The image observation had no same-tag baseline, so layer reuse values do not represent remote deployment transfer reuse.",
+    "No paired Dockerfile control and candidate were measured, so no Docker layer optimization is claimed."
+  ]
+}
