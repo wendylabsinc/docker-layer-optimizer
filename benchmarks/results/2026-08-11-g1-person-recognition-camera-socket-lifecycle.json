@@ -62,8 +62,11 @@
     "private_socket_recreated_after_agent_restart": true,
     "read_only_socket_mount_present": true,
     "system_api_reachable_after_agent_restart": true,
-    "camera_online": false,
-    "camera_error": "camera 200 is offline"
+    "camera_online": true,
+    "camera_frames_advancing": true,
+    "app_stop_start_verified": true,
+    "processing_fps_observed": 7.883,
+    "detector_average_inference_ms_observed": 77.593
   },
   "result": {
     "built": true,
@@ -73,7 +76,7 @@
     "reason": "The camera System API socket lifecycle fix was validated live across an agent restart. No paired Dockerfile optimization candidate was measured."
   },
   "remaining_uncertainty": [
-    "Camera 200 remained offline, so advancing frames and recognition inference were not revalidated in this run.",
+    "No person was confirmed in the final frame, so OSNet and facial matching were not exercised during the lifecycle recovery.",
     "The image observation had no same-tag baseline, so layer reuse values do not represent remote deployment transfer reuse.",
     "No paired Dockerfile control and candidate were measured, so no Docker layer optimization is claimed."
   ]
