@@ -16,23 +16,24 @@
     "bytes": null
   },
   "deployment": {
-    "observations": 2,
+    "observations": 3,
     "duration_seconds": [
       105.891,
-      106.96
+      106.96,
+      133.07
     ],
-    "median_duration_seconds": 106.4255,
+    "median_duration_seconds": 106.96,
     "status": "success",
     "phase_source": "output-markers",
     "dominant_phase": "build",
     "median_phases_seconds": {
-      "build": 54.7915,
-      "export": 45.717,
-      "transfer": 0.043,
-      "unpack": 0.1495,
-      "replacement": 0.9225,
-      "readiness": 2.9285,
-      "unclassified": 1.8735
+      "build": 54.886,
+      "export": 45.885,
+      "transfer": 0.041,
+      "unpack": 0.09,
+      "replacement": 0.934,
+      "readiness": 2.694,
+      "unclassified": 1.437
     }
   },
   "cache": {
@@ -45,7 +46,7 @@
   },
   "observer": {
     "overhead_seconds": null,
-    "median_unclassified_seconds": 1.8735
+    "median_unclassified_seconds": 1.437
   },
   "result": {
     "built": true,
@@ -55,9 +56,9 @@
     "optimization_claim": false
   },
   "remaining_uncertainty": [
-    "The two deployments used uncontrolled cache states and are not a paired Stagefile-versus-Dockerfile trial.",
+    "The three deployments used uncontrolled cache states and are not a paired Stagefile-versus-Dockerfile trial.",
     "The adapter reports one aggregate build segment for the concurrent two-service build, so per-service cache and rebuild counts are unavailable.",
     "Context size, image layer aggregates, compressed transfer bytes, and exact observer overhead were not emitted.",
-    "The latest physical pear run failed during metric Arrival after a camera-confidence collapse interrupted the LiDAR confirmation sequence; this does not change the deployment timing result."
+    "The third deployment installed the camera-only stage closeout profile and verified both services ready and motion disarmed, but no physical fruit run was performed; physical success and final clearance remain unqualified."
   ]
 }
