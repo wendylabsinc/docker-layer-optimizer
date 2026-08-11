@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/border-collie-demo",
+  "component": "app_and_media_services",
+  "change_class": "stagefile_multiservice_device_deployment",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "recorded_sha256": "a9c9d59ea2cfd3ec614d32bac8907ef6cfe2473cc53be5744c6026f1b5622b70"
+  },
+  "context": {
+    "bytes": null
+  },
+  "deployment": {
+    "observations": 2,
+    "duration_seconds": [
+      105.891,
+      106.96
+    ],
+    "median_duration_seconds": 106.4255,
+    "status": "success",
+    "phase_source": "output-markers",
+    "dominant_phase": "build",
+    "median_phases_seconds": {
+      "build": 54.7915,
+      "export": 45.717,
+      "transfer": 0.043,
+      "unpack": 0.1495,
+      "replacement": 0.9225,
+      "readiness": 2.9285,
+      "unclassified": 1.8735
+    }
+  },
+  "cache": {
+    "cached_steps": null,
+    "rebuilt_steps": null
+  },
+  "images": {
+    "count": 2,
+    "aggregate_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "median_unclassified_seconds": 1.8735
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "container_services_running": true,
+    "application_activation_ready": true,
+    "optimization_claim": false
+  },
+  "remaining_uncertainty": [
+    "The two deployments used uncontrolled cache states and are not a paired Stagefile-versus-Dockerfile trial.",
+    "The adapter reports one aggregate build segment for the concurrent two-service build, so per-service cache and rebuild counts are unavailable.",
+    "Context size, image layer aggregates, compressed transfer bytes, and exact observer overhead were not emitted.",
+    "The latest physical pear run failed during metric Arrival after a camera-confidence collapse interrupted the LiDAR confirmation sequence; this does not change the deployment timing result."
+  ]
+}
