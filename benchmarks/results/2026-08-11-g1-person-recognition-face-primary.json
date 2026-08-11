@@ -3,7 +3,7 @@
   "date": "2026-08-11",
   "source_repository": "wendylabsinc/G1-Modcon-Demo",
   "component": "person-recognition-lab",
-  "change_class": "iphone_responsive_lan_operator_ui",
+  "change_class": "explicit_seated_recognition_mode",
   "tool": {
     "name": "docker-layer-optimizer",
     "version": "0.5.0b1",
@@ -13,12 +13,12 @@
     "sha256": "6be28c5831bb0ffdcfc023b5b6b3fffff552922d5d1bdb336e079a115429c456"
   },
   "context": {
-    "bytes": 59496,
+    "bytes": 77580,
     "measurement": "cached_feature_build_observation"
   },
   "build": {
     "status": "success",
-    "duration_seconds": 5.383,
+    "duration_seconds": 10.607,
     "cached_steps": 6,
     "rebuilt_steps": 8,
     "resolved_steps": 1,
@@ -29,7 +29,7 @@
     "adapter": "wendy",
     "target_class": "jetson_orin_nano",
     "status": "success",
-    "duration_seconds": 49.0,
+    "duration_seconds": 72.0,
     "phase_seconds": null
   },
   "image_and_layers": {
@@ -37,22 +37,30 @@
     "aggregate_layer_count": 16,
     "new_layers_without_baseline": 16,
     "reused_layers_without_baseline": 0,
-    "image_size_bytes": 449746635
+    "image_size_bytes": 449750508
   },
   "observer": {
-    "build_wrapper_seconds": 5.813876,
-    "build_non_build_overhead_seconds": 0.429723,
-    "inspection_seconds": 0.036211,
-    "snapshot_seconds": 0.393512,
+    "build_wrapper_seconds": 11.41341,
+    "build_non_build_overhead_seconds": 0.801887,
+    "inspection_seconds": 0.130113,
+    "snapshot_seconds": 0.671774,
     "deployment_wrapper_required_manual_exit_after_readiness": true
   },
   "correctness": {
-    "container_tests_passed": 34,
-    "app_version": "0.5.2",
+    "container_tests_passed": 39,
+    "app_version": "0.6.1",
     "app_running": true,
     "camera_online": true,
     "camera_reconnects": 0,
-    "processing_fps_observed": 7.918,
+    "processing_fps_observed": 7.985,
+    "standing_initial_minimum_aspect_ratio": 1.2,
+    "seated_initial_minimum_aspect_ratio": 0.8,
+    "seated_continuity_minimum_aspect_ratio": 0.6,
+    "seated_initial_face_required": true,
+    "seated_same_track_continuity_hysteresis": true,
+    "seated_mode_ui_switch_verified": true,
+    "seated_mode_live_lock_verified_on_app_version": "0.6.0",
+    "seated_mode_live_lock_verified_on_app_0_6_1": false,
     "iphone_portrait_viewport": "390x844",
     "iphone_portrait_touch_target_pixels": 50,
     "iphone_portrait_horizontal_overflow": false,
@@ -80,11 +88,11 @@
     "built": true,
     "deployed": true,
     "optimization_claim": false,
-    "reason": "The iPhone-responsive LAN operator UI was built and deployed, but no paired Dockerfile control and candidate were measured."
+    "reason": "The explicit seated-recognition mode was built and deployed, but no paired Dockerfile control and candidate were measured."
   },
   "remaining_uncertainty": [
-    "Oliver must complete the five live wizard captures after a native browser confirmation was unexpectedly auto-accepted during verification; the final handoff intentionally remained at frontal with zero new captures.",
-    "The hoodie and distractor acceptance sequence still needs live score capture after the completed wizard.",
+    "App 0.6.0 locked Oliver live in seated mode, then one 0.7085 aspect crop briefly unlocked it; app 0.6.1 adds same-track continuity hysteresis, but Oliver was absent during the final live lock sample.",
+    "The hoodie and distractor acceptance sequence still needs live score capture against app 0.6.1.",
     "The revised phrase was prepared but could not play because the prior USB ALSA card was absent from host and container enumeration.",
     "Live left and right detector coordinates were opposite the operator-facing direction, so UI direction labels still need camera-orientation calibration.",
     "The deployment wrapper stayed attached after readiness and was terminated locally; live app state and advancing frames were independently verified afterward.",
