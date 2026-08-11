@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "person-recognition-lab",
+  "change_class": "gpu_detector_vectorized_gallery_and_departure_lifecycle",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "6a976c7efacf4b340ff83cca986ee1890741c06f506fd4b8bfd47087d33b770c"
+  },
+  "context": {
+    "bytes": 27530,
+    "measurement": "warm_feature_build_and_cached_device_deploy"
+  },
+  "build": {
+    "status": "success",
+    "duration_seconds": 5.097,
+    "cached_steps": 7,
+    "rebuilt_steps": 8,
+    "resolved_steps": 1,
+    "failed_steps": 0,
+    "total_steps": 16
+  },
+  "deployment": {
+    "adapter": "wendy",
+    "target_class": "jetson_orin_nano",
+    "status": "success",
+    "duration_seconds": 82.455,
+    "phase_seconds": {
+      "build": 47.719,
+      "export": 11.942,
+      "transfer": 0.014,
+      "unpack": 18.923,
+      "replacement": 0.835,
+      "readiness": 2.572
+    },
+    "unclassified_seconds": 0.45
+  },
+  "image_and_layers": {
+    "image_count": 1,
+    "aggregate_layer_count": 17,
+    "new_layers_without_baseline": 17,
+    "reused_layers_without_baseline": 0,
+    "generic_image_size_bytes": 449799330
+  },
+  "observer": {
+    "build_wrapper_seconds": 5.525811,
+    "build_non_build_overhead_seconds": 0.42787,
+    "inspection_seconds": 0.032599,
+    "snapshot_seconds": 0.395271,
+    "deployment_unclassified_seconds": 0.45
+  },
+  "correctness": {
+    "container_tests_passed": 60,
+    "app_version": "0.8.1",
+    "app_running": true,
+    "camera_online": true,
+    "camera_reconnects": 0,
+    "saved_identity_count": 3,
+    "detector_backend": "TensorRT FP32",
+    "detector_average_ms_observed": 7.267,
+    "cpu_detector_average_ms_baseline": 61.025,
+    "processing_fps_observed": 9.986,
+    "gallery_benchmark_old_ms": 9.85,
+    "gallery_benchmark_vectorized_ms": 2.464,
+    "private_evaluation_data_in_image": false,
+    "perception_only": true,
+    "motion_activated": false
+  },
+  "result": {
+    "built": true,
+    "deployed": true,
+    "gpu_detector_qualified": true,
+    "optimization_claim": false,
+    "reason": "The application optimization was measured, but no paired Dockerfile layer-layout control and candidate were benchmarked."
+  },
+  "remaining_uncertainty": [
+    "The current IP-camera sub-stream delivered about ten frames per second, so the lower detector latency did not raise end-to-end throughput above the source rate.",
+    "TensorRT FP16 engine generation failed on the tested JetPack runtime; FP32 is the qualified mode.",
+    "A physical known-person departure was not available during the final sample; its lifecycle is covered by deterministic tests but still needs live qualification.",
+    "The generic local image measurement excludes the larger Jetson-only TensorRT runtime layers.",
+    "No paired Dockerfile control and candidate were measured, so no Docker layer optimization is claimed."
+  ]
+}
