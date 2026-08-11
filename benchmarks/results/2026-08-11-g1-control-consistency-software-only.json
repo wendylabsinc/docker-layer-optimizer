@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-11",
+  "source_repository": "wendylabsinc/G1-Modcon-Demo",
+  "component": "main-demo control consistency",
+  "change_class": "software_only_control_tuning_and_instrumentation",
+  "tool": {
+    "name": "docker-layer-optimizer",
+    "version": "0.5.0b1",
+    "event_schema_version": 3
+  },
+  "dockerfile": {
+    "sha256": "35035836ab242e68d4e251ae0e217edba3c8ca4ddfabaa1b4637f28fd4cea1ad",
+    "context_bytes": null,
+    "build_duration_seconds": null,
+    "cached_steps": null,
+    "rebuilt_steps": null
+  },
+  "image_layers": {
+    "image_count": 0,
+    "layer_count": null,
+    "cached_or_reused_layer_count": null,
+    "rebuilt_or_applied_layer_count": null
+  },
+  "observer": {
+    "overhead_seconds": null,
+    "task_event_recorded": true
+  },
+  "correctness": {
+    "main_demo_tests_passed": 123,
+    "changed_python_files_lint_passed": true,
+    "fake_dds_takeover_samples": 200,
+    "fake_dds_takeover_p50_ms": 0.0343,
+    "fake_dds_takeover_p95_ms": 0.9485,
+    "fake_dds_takeover_maximum_ms": 2.5972,
+    "physical_motion_activated": false
+  },
+  "result": {
+    "built": false,
+    "deployed": false,
+    "optimization_claim": false,
+    "reason": "The task changed and tested application control logic without building an image or deploying to hardware."
+  },
+  "remaining_uncertainty": [
+    "No image build ran, so context size, build duration, Dockerfile-step cache counts, image layers, and observer overhead are unavailable.",
+    "The latency measurement used fake local DDS input and fake service dependencies; it excludes robot DDS transport, RPC latency, braking, and physical controller behavior.",
+    "The fixed far-speed plateau and manual takeover path require supervised harness acceptance before deployment qualification."
+  ]
+}
